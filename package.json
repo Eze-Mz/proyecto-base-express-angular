@@ -1,0 +1,17 @@
+{
+  "name": "proyecto-base-express-angular",
+  "version": "1.0.0",
+  "description": "Proyecto base para angular en el front y express en el back. Propuesta para el Xacademy.",
+  "main": "index.js",
+  "scripts": {
+    "install-back": "npm install --prefix back",
+    "install-front": "npm install --prefix front",
+    "install": "npm run install-back && npm run install-front",
+    "back": "npm run open --prefix back && npm run dev --prefix back",
+    "front": "npm start --prefix front",
+    "dev": "npm run back & npm run front"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
