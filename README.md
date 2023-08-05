@@ -9,12 +9,17 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
   - usar Rome? o eslint?
 - Revisar middlewares y modelos propuestos por el proyecto base
 - Usar logger para la base de datos (¿cómo se configura?)
-- sqlite3 para el entorno de dev?
+- sqlite3 tá para probar nomás.
 - Jest para hacer test en node?
 - Agregar `envalid` para validar archivos .env
 - **Revisar la estructura de angular del proyecto base y copiarla**
 
-# Scripts
+# Scripts en el directorio raíz
+- `install-back`
+- `install-front`
+- `install` -> instala ambos
+- `back` -> inicia express
+- `front` -> inicia angular
 - `dev` -> iniciar los servidores del front y del back
 
 # Back
