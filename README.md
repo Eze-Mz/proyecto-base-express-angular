@@ -3,7 +3,6 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 # Lo que falta
 - Configurar env de producción
-- Agregar distintos scripts para levantar e instalar la app
 - Agregar linter 
   - en el package.json padre de ambos front y back?
   - usar Rome? o eslint?
@@ -12,7 +11,6 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 - sqlite3 tá para probar nomás.
 - Jest para hacer test en node?
 - Agregar `envalid` para validar archivos .env
-- **Revisar la estructura de angular del proyecto base y copiarla**
 
 # Scripts en el directorio raíz
 - `install-back`
@@ -92,13 +90,19 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 > ```
 >
 
-> ### Lo que no vas a usar y porqué
+> ### Lo que no vamos a usar y porqué
 > - `express-session` -> no vamos a crear sesiones de usuarios, en principio vamos a manejar la autenticación con JWT
 > - `cookie-parser` -> en principio no vamos a trabajar con cookies... o sí?
 > - `husky` -> al menos por ahora, quisiera entender la configuración antes de usarlo porque me daba errores
 
 # Front
+## Estructura
+/core -> 
+  /guards
+  /http -> servicio para conectar con la api, hay varias funciones que pueden ser útiles.
+/modules -> Según esta propuesta los componentes van a estar separados en distintos módulos. En principio podrían ser: login/registro, dashboard, shared/compartidos (para elementos compartidos)
 
+Para qué es el archivo `core-import.guard.ts`?????????????
 ## Framework
 [Angular]()
 Y todas las dependencias que usa angular.
