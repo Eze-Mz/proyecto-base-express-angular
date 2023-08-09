@@ -3,9 +3,6 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 # Lo que falta
 - Configurar env de producción
-- Agregar linter 
-  - en el package.json padre de ambos front y back?
-  - usar Rome? o eslint?
 - Revisar middlewares y modelos propuestos por el proyecto base
 - Usar logger para la base de datos (¿cómo se configura?)
 - sqlite3 tá para probar nomás.
@@ -71,7 +68,10 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 - [helmet](https://www.npmjs.com/package/helmet) -> Helmet helps secure Express apps by setting HTTP response headers.
 - [cors](https://www.npmjs.com/package/cors) -> CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 ### Dev
-- Acá va a ir eslint
+- [eslint](https://eslint.org/docs/latest/use/getting-started) -> ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+- [eslint-config-semistandard](https://www.npmjs.com/package/eslint-config-semistandard) -> standard styles but with semicolons
+- [@angular/eslint](https://github.com/angular-eslint/angular-eslint#readme) -> enables ESLint to lint Angular projects. Lint ts and html files with Angular good practices. 
+  - See: https://github.com/angular-eslint/angular-eslint/tree/main/packages/eslint-plugin-template/docs/rules for the rules
 - nodemon solo si `node --watch` no funciona bien
 
 ### Config
