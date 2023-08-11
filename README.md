@@ -1,13 +1,13 @@
 # proyecto-base-express-angular
 Proyecto base para angular en el front y express en el back. Propuesta para el Xacademy.
 
-# Lo que falta
-- Configurar env de producción
-- Revisar middlewares y modelos propuestos por el proyecto base
-- Usar logger para la base de datos (¿cómo se configura?)
-- sqlite3 tá para probar nomás.
+# Preguntar a los mentores
+- Aspectos importantes de la configuración de la base de datos
+- Sobre el middleware de los errores del proyecto base
 - Jest para hacer test en node?
-- Agregar `envalid` para validar archivos .env
+
+# Lo que falta
+- Configurar la base de datos
 
 # Scripts en el directorio raíz
 - `install-back`
@@ -88,12 +88,17 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 >   return server.listen.apply(server, arguments);
 > };
 > ```
->
+
+> ### Sobre los middlewares del proyecto base
+> - validación -> sugiero usar Zod para hacer las validaciones, por lo tanto armamos nosotros la configuración
+> - root_path -> no lo termino de entender, agregaro si hace falta
+> - error_handler -> este lo haría de manera similar si vemos que lo necesitamos
 
 > ### Lo que no vamos a usar y porqué
 > - `express-session` -> no vamos a crear sesiones de usuarios, en principio vamos a manejar la autenticación con JWT
 > - `cookie-parser` -> en principio no vamos a trabajar con cookies... o sí?
 > - `husky` -> al menos por ahora, quisiera entender la configuración antes de usarlo porque me daba errores
+> - `express-validator` -> sugiero usar Zod para hacer las validaciones
 
 # Front
 ## Estructura

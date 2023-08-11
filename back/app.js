@@ -9,11 +9,16 @@ const cors = require('cors');
 const logger = require('./utils/winston.logger');
 // db-config
 const { initializeDB } = require('./config/db-config');
+// envalid
+const validateEnv = require('./utils/validateEnv');
 
 // Rutes:
 const routes = require('./routes');
 
 const app = express();
+// validate env
+validateEnv.validate();
+
 // helmet config
 app.use(helmet({
   xFrameOptions: { action: 'deny' }
