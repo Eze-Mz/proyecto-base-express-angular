@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "node --watch ./bin/www",
+    "dev": "nodemon ./bin/www",
     "open": "start http://localhost:4001"
   },
   "dependencies": {
@@ -15,9 +15,14 @@
     "helmet": "7.0.0",
     "moment": "2.29.4",
     "morgan": "~1.9.1",
+    "pg": "^8.11.2",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1",
     "sqlite3": "^5.1.6",
     "winston": "3.10.0",
     "winston-daily-rotate-file": "4.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

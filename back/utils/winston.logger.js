@@ -7,10 +7,10 @@ const transportApi = new (winston.transports.DailyRotateFile)({
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
   maxSize: '10m',
-  maxFiles: '15d',
+  maxFiles: '15d'
 });
 const appendTimestamp = winston.format(
-  (info) => Object.assign(info, { timestamp: moment().format() }),
+  (info) => Object.assign(info, { timestamp: moment().format() })
 );
 
 module.exports = {
@@ -23,14 +23,14 @@ module.exports = {
         winston.format.metadata(),
         appendTimestamp(),
         winston.format.errors({ stack: true }),
-        winston.format.json(),
+        winston.format.json()
       ),
       transports: [
         transportApi,
         new winston.transports.Console(
-          {},
-        ),
-      ],
-    },
-  ),
+          {}
+        )
+      ]
+    }
+  )
 };

@@ -6,6 +6,7 @@ module.exports = {
       PORT: envalid.port(),
       APP: envalid.str(),
       ENVIRONMENT: envalid.str({ choices: ['development', 'production'] }),
+      DB_URL: envalid.url(),
       DB_HOST: envalid.host(),
       DB_PORT: envalid.port(),
       DB_USERNAME: envalid.str(),

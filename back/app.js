@@ -51,5 +51,8 @@ app.use(cors(corsOptions));
 initializeDB();
 
 app.use('/', routes);
+// test route
+const testRouter = require('./routes/test.router');
+app.use('/test', testRouter);
 
 module.exports = app;

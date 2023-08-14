@@ -1,13 +1,17 @@
 # proyecto-base-express-angular
 Proyecto base para angular en el front y express en el back. Propuesta para el Xacademy.
 
-# Preguntar a los mentores
+# Preguntas/dudas
 - Aspectos importantes de la configuración de la base de datos
 - Sobre el middleware de los errores del proyecto base
 - Jest para hacer test en node?
+- CÓMO USAR EL INDEX PARA CONFIGURAR LAS RUTAS??
+- CÓMO CONVIENE CONFIGURAR LA BASE DE DATOS PARA DESARROLLAR?
+- Qué es el error de inicialización de los atributos en las clases de angular? Revisar!
 
 # Lo que falta
 - Configurar la base de datos
+- Logging base de datos, ver -> https://sequelize.org/docs/v6/getting-started/ (la parte que habla de configurar el logger)
 
 # Scripts en el directorio raíz
 - `install-back`
@@ -70,13 +74,17 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 ### Dev
 - [eslint](https://eslint.org/docs/latest/use/getting-started) -> ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - [eslint-config-semistandard](https://www.npmjs.com/package/eslint-config-semistandard) -> standard styles but with semicolons
-- [@angular/eslint](https://github.com/angular-eslint/angular-eslint#readme) -> enables ESLint to lint Angular projects. Lint ts and html files with Angular good practices. 
   - See: https://github.com/angular-eslint/angular-eslint/tree/main/packages/eslint-plugin-template/docs/rules for the rules
 - nodemon solo si `node --watch` no funciona bien
 
 ### Config
 - [dotenv](https://www.npmjs.com/package/dotenv) -> a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
-- Falta agregar envalid
+- [envalid]()
+
+### Database
+We use a postgreSQL database, with sequelize ORM.
+- [pg](https://node-postgres.com/) -> node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database. It has support for callbacks, promises, async/await, connection pooling, prepared statements, cursors, streaming results, C/C++ bindings, rich type parsing, and more!
+- [pg-hstore](https://www.npmjs.com/package/pg-hstore) -> A node package for serializing and deserializing JSON data to hstore format
 
 
 ## Preguntas
@@ -111,3 +119,10 @@ Para qué es el archivo `core-import.guard.ts`?????????????
 ## Framework
 [Angular]()
 Y todas las dependencias que usa angular.
+
+## Dependencies
+### Data visualization
+- [apexcharts](https://apexcharts.com/) -> 
+- [ng-apexcharts](https://apexcharts.com/docs/angular-charts/) ->
+### Dev
+- [@angular/eslint](https://github.com/angular-eslint/angular-eslint#readme) -> enables ESLint to lint Angular projects. Lint ts and html files with Angular good practices. 
