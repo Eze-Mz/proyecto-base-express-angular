@@ -7,7 +7,7 @@
     "install-back": "npm install --prefix back",
     "install-front": "npm install --prefix front",
     "install": "npm run install-back && npm run install-front",
-    "back": "npm run open --prefix back && npm run dev --prefix back",
+    "back": "npm run dev --prefix back",
     "front": "npm start --prefix front",
     "dev": "npm run back & npm run front"
   },

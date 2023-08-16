@@ -11,6 +11,7 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 # Lo que falta
 - Configurar la base de datos
+- Eliminar sequelize
 - Logging base de datos, ver -> https://sequelize.org/docs/v6/getting-started/ (la parte que habla de configurar el logger)
 
 # Scripts en el directorio raíz
@@ -49,6 +50,7 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 ### Core
 - [express](https://expressjs.com/) 
 - [sequelize](https://sequelize.org/) -> TypeScript and Node.js ORM for Oracle, Postgres, MySQL, MariaDB, SQLite and SQL Server
+- Base de datos: https://www.fl0.com/ 
 - [sqlite3](https://www.npmjs.com/package/sqlite3) 
 
 ### Loggers
