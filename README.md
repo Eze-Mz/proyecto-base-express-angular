@@ -1,17 +1,28 @@
 # proyecto-base-express-angular
 Proyecto base para angular en el front y express en el back. Propuesta para el Xacademy.
 
+# Links
+[Proyecto github](https://github.com/Eze-Mz/proyecto-base-express-angular)
+
+[Trello](https://trello.com/b/XanHBY7J/xacademy)
+
+[Drive](https://drive.google.com/drive/folders/1IxqBTvYTILYmmq27C7sxkTb-GLeJNiLi?usp=drive_link)
+
+[Sketch en excalidraw](https://excalidraw.com/#json=UL-8pkQ0Wm5VtEvjFlPdC,1ZEOxX_mH0YgPop2-7IFuA)
+
 # Preguntas/dudas
-- Aspectos importantes de la configuración de la base de datos
 - Sobre el middleware de los errores del proyecto base
 - Jest para hacer test en node?
-- CÓMO USAR EL INDEX PARA CONFIGURAR LAS RUTAS??
-- CÓMO CONVIENE CONFIGURAR LA BASE DE DATOS PARA DESARROLLAR?
-- Qué es el error de inicialización de los atributos en las clases de angular? Revisar!
+- CÓMO USAR EL INDEX PARA CONFIGURAR LAS RUTAS?? (back)
+
+# Base de datos
+- Una sola tabla para usuarios
+- Una tabla de roles
+- Una tabla que relaciones usuarios y encuestadores
 
 # Lo que falta
-- Configurar la base de datos
-- Eliminar sequelize
+- Configurar la base de datos -> docker img
+- Eliminar sqlite
 - Logging base de datos, ver -> https://sequelize.org/docs/v6/getting-started/ (la parte que habla de configurar el logger)
 
 # Scripts en el directorio raíz
