@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www"
+    "db": "docker compose up -d",
+    "server": "nodemon ./bin/www",
+    "dev": "npm run db && npm run server"
   },
   "dependencies": {
     "cors": "2.8.5",
