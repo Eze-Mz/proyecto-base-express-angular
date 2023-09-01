@@ -84,6 +84,7 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
     - https://github.com/jsonmaur/xss-clean/blob/master/src/xss.js
 - [helmet](https://www.npmjs.com/package/helmet) -> Helmet helps secure Express apps by setting HTTP response headers.
 - [cors](https://www.npmjs.com/package/cors) -> CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+- Node crypto module to create passwords. See: https://www.youtube.com/watch?v=NuyzuNBFWxQ 
 ### Dev
 - [eslint](https://eslint.org/docs/latest/use/getting-started) -> ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - [eslint-config-semistandard](https://www.npmjs.com/package/eslint-config-semistandard) -> standard styles but with semicolons
