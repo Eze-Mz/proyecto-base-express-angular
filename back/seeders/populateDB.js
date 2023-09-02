@@ -1,4 +1,4 @@
-/* const { users } = require('./mockups.js');
+const { users } = require('./mockups.js');
 
 const createUsersOnStart = async () => {
   try {
@@ -28,4 +28,4 @@ const createRolesOnStart = async () => {
 module.exports = {
   createUsersOnStart,
   createRolesOnStart
-}; */
+};

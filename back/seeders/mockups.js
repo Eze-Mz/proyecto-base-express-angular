@@ -1,4 +1,4 @@
-/* const users = [
+const users = [
   {
     firstName: 'John',
     lastName: 'Doe',
@@ -25,4 +25,3 @@
 module.exports = {
   users
 };
- */

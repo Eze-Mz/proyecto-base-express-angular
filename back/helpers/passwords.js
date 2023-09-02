@@ -1,4 +1,4 @@
-const { scryptSync, randomBytes } = require('crypto');
+const { scryptSync, randomBytes, timingSafeEqual } = require('crypto');
 
 function createPassword (password) {
   const salt = randomBytes(16).toString('hex');
@@ -9,7 +9,7 @@ function createPassword (password) {
 function validatePassword (password, hash) {
   const [salt, key] = hash.split(':');
   const newHash = scryptSync(password, salt, 64).toString('hex');
-  return key === newHash;
+  return timingSafeEqual(Buffer.from(key), Buffer.from(newHash));
 }
 
 module.exports = {
