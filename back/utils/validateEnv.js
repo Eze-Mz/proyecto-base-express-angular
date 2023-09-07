@@ -8,7 +8,7 @@ module.exports = {
       ENVIRONMENT: envalid.str({ choices: ['development', 'production'] }),
       DB_HOST: envalid.host(),
       DB_PORT: envalid.port(),
-      DB_USERNAME: envalid.str(),
+      DB_USER: envalid.str(),
       DB_PASSWORD: envalid.str(),
       DB_DATABASE: envalid.str(),
       DB_DIALECT: envalid.str(),

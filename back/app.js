@@ -35,7 +35,7 @@ app.use(express.urlencoded(
 ));
 
 // cors config
-const whitelist = process.env.CORS.split(' ');
+/* const whitelist = process.env.CORS.split(' ');
 const corsOptions = {
   origin (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -45,14 +45,11 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   }
-};
-app.use(cors(corsOptions));
+}; */
+app.use(cors());
 
 initializeDB();
 
 app.use('/', routes);
-// test route
-const testRouter = require('./routes/test.router');
-app.use('/test', testRouter);
 
 module.exports = app;
