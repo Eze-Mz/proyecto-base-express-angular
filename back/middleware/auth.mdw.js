@@ -1,4 +1,9 @@
 const jwt = require('jsonwebtoken');
+/**
+ *
+ * @param {*} role agregar "ADMIN" para proteger las rutas para administradores
+ * @returns middleware function
+ */
 
 const userIsAuthenticatedMDW = (role) => {
   return (req, res, next) => {
@@ -11,7 +16,6 @@ const userIsAuthenticatedMDW = (role) => {
       return res.status(401).json({ message: 'No se ha enviado el token de autenticación' });
     }
     try {
-      console.log('LLEGA ACÁ');
       const tokenData = jwt.verify(token, process.env.SECRET);
       if (role && role !== tokenData.role) {
         return res.status(403).json({ message: 'No tienes permisos para realizar esta acción' });
