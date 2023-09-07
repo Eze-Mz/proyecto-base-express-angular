@@ -28,7 +28,18 @@ const getUsers = async () => {
   }
 };
 
+const getUserByEmail = async (email) => {
+  try {
+    const user = await User.findOne({ where: { email }, include: 'Role' });
+    return user;
+  } catch (error) {
+    console.error('Error al buscar un usuario', error);
+    throw error;
+  }
+};
+
 module.exports = {
   createUser,
-  getUsers
+  getUsers,
+  getUserByEmail
 };

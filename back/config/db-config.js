@@ -17,8 +17,8 @@ const initializeDB = async () => {
     await User.sync({ force: false });
     await Role.sync({ force: false });
 
-    await createRolesOnStart();
-    await createUsersOnStart();
+    // await createRolesOnStart();
+    // await createUsersOnStart();
   } catch (error) {
     console.error('Error al inicializar la base de datos', error);
   }

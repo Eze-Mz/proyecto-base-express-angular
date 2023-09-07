@@ -10,19 +10,17 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 [Sketch en excalidraw](https://excalidraw.com/#json=UL-8pkQ0Wm5VtEvjFlPdC,1ZEOxX_mH0YgPop2-7IFuA)
 
-# Preguntas/dudas
-- Sobre el middleware de los errores del proyecto base
-- Jest para hacer test en node?
-- CÓMO USAR EL INDEX PARA CONFIGURAR LAS RUTAS?? (back)
+[REST API testint: Hoppscotch](https://hoppscotch.io/)
 
-# Base de datos
-- Una sola tabla para usuarios
-- Una tabla de roles
-- Una tabla que relaciones usuarios y encuestadores
+[Diagrama base de datos](https://lucid.app/lucidchart/81309934-611a-4650-9aba-fcca37e18f05/edit?viewport_loc=-628%2C-784%2C2220%2C1026%2C0_0&invitationId=inv_84295554-b604-42fd-b78b-f4fbcdcb1add)
+
+# Tener en cuenta
+- login con el mail
+
 
 # Lo que falta
-- Configurar la base de datos -> docker img
-- Eliminar sqlite
+- Sobre el middleware de los errores del proyecto base
+- Jest para hacer test en node
 - Logging base de datos, ver -> https://sequelize.org/docs/v6/getting-started/ (la parte que habla de configurar el logger)
 
 # Scripts en el directorio raíz
@@ -90,6 +88,7 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 - [eslint-config-semistandard](https://www.npmjs.com/package/eslint-config-semistandard) -> standard styles but with semicolons
   - See: https://github.com/angular-eslint/angular-eslint/tree/main/packages/eslint-plugin-template/docs/rules for the rules
 - nodemon solo si `node --watch` no funciona bien
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
 ### Config
 - [dotenv](https://www.npmjs.com/package/dotenv) -> a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.

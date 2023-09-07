@@ -8,7 +8,13 @@ const getUsers = async () => {
   return await userProvider.getUsers();
 };
 
+const checkIfUserExists = async (email) => {
+  const userFound = userProvider.getUserByEmail(email);
+  return userFound || false;
+};
+
 module.exports = {
   createUser,
-  getUsers
+  getUsers,
+  checkIfUserExists
 };
