@@ -12,7 +12,7 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 [Sketch en excalidraw](https://excalidraw.com/#json=UL-8pkQ0Wm5VtEvjFlPdC,1ZEOxX_mH0YgPop2-7IFuA)
 
-[REST API testint: Hoppscotch](https://hoppscotch.io/)
+[REST API testing: Hoppscotch](https://hoppscotch.io/)
 
 [Diagrama base de datos](https://lucid.app/lucidchart/81309934-611a-4650-9aba-fcca37e18f05/edit?viewport_loc=-628%2C-784%2C2220%2C1026%2C0_0&invitationId=inv_84295554-b604-42fd-b78b-f4fbcdcb1add)
 
