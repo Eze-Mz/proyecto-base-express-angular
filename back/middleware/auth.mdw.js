@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
+
 /**
  *
  * @param {*} role agregar "ADMIN" para proteger las rutas para administradores
  * @returns middleware function
- */
-
+*/
 const userIsAuthenticatedMDW = (role) => {
   return (req, res, next) => {
     const authorization = req.get('authorization');

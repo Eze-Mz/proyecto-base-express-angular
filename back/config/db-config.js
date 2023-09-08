@@ -14,8 +14,8 @@ const initializeDB = async () => {
     const Role = require('../models/role');
     const User = require('../models/user');
     console.log(sequelize.models);
-    await User.sync({ force: false });
-    await Role.sync({ force: false });
+    await User.sync({ alter: false });
+    await Role.sync({ alter: false });
 
     // await createRolesOnStart();
     // await createUsersOnStart();

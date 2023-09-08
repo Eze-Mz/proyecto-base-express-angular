@@ -6,6 +6,8 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 [Trello](https://trello.com/b/XanHBY7J/xacademy)
 
+[Sala de meet](https://meet.google.com/kxx-pchq-huq)
+
 [Drive](https://drive.google.com/drive/folders/1IxqBTvYTILYmmq27C7sxkTb-GLeJNiLi?usp=drive_link)
 
 [Sketch en excalidraw](https://excalidraw.com/#json=UL-8pkQ0Wm5VtEvjFlPdC,1ZEOxX_mH0YgPop2-7IFuA)
