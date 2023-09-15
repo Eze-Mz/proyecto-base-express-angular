@@ -13,9 +13,11 @@ const initializeDB = async () => {
     console.log('Conexión a la base de datos establecida');
     const Role = require('../models/role');
     const User = require('../models/user');
+    const Survey = require('../models/survey');
     console.log(sequelize.models);
     await User.sync({ alter: false });
     await Role.sync({ alter: false });
+    await Survey.sync({ alter: false });
 
     // await createRolesOnStart();
     // await createUsersOnStart();
