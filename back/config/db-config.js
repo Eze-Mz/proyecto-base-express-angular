@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-// const { createUsersOnStart, createRolesOnStart } = require('../seeders/populateDB');
+const { createUsersOnStart, createRolesOnStart } = require('../seeders/populateDB');
 
 const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
@@ -18,9 +18,8 @@ const initializeDB = async () => {
     await User.sync({ alter: false });
     await Role.sync({ alter: false });
     await Survey.sync({ alter: false });
-
-    // await createRolesOnStart();
-    // await createUsersOnStart();
+    await createRolesOnStart();
+    await createUsersOnStart();
   } catch (error) {
     console.error('Error al inicializar la base de datos', error);
   }
