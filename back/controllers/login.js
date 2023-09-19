@@ -17,13 +17,13 @@ const createToken = async (req, res) => {
     // buscar si el usuario existe en la base de datos
     const user = await userService.checkIfUserExists(email);
     if (!user) {
-      return res.status(401).json({ message: 'Email o password incorrectos' });
+      return res.status(400).json({ message: 'Email o password incorrectos' });
     }
 
     // validar si el password es correcto
     const validPassword = validatePassword(password, user.password);
     if (!validPassword) {
-      return res.status(401).json({ message: 'Email o password incorrectos' });
+      return res.status(400).json({ message: 'Email o password incorrectos' });
     }
 
     const tokenData = {

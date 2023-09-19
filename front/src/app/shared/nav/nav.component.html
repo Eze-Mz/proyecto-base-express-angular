@@ -9,11 +9,11 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="/inicio">Turismo</a>
         </li>
-        <li *ngIf="!userLoginOn" class="nav-item">
+        <li *ngIf="!userIsLogged" class="nav-item">
           <a class="nav-link" routerLink="/iniciar-sesion">iniciar Sesion</a>
         </li>
-        <li *ngIf="userLoginOn" class="nav-item">
-          <a class="nav-link" routerLink="/inicio">Cerrar Sesion</a>
+        <li *ngIf="userIsLogged" class="nav-item">
+          <button class="nav-link" (click)="cerrarSesion()">Cerrar Sesion</button>
         </li>
       </ul>
     </div>
