@@ -19,7 +19,7 @@ const createSurvey = async (req, res) => {
 
 const getSurvey = async (req, res) => {
   try {
-    const users = await surveyService.getUsers();
+    const users = await surveyService.getSurvey();
     res.json(users);
   } catch (error) {
     res.status(500).json({ action: 'getSurvey', error: error.message });

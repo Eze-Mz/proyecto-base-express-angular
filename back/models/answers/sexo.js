@@ -6,7 +6,6 @@ const Sexo = sequelize.define('Sexo', {
   sexo: {
     type: DataTypes.ENUM('masculino', 'femenino'),
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [['masculino', 'femenino']]
     }

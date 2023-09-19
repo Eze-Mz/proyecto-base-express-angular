@@ -24,11 +24,7 @@ const surveySchema = checkSchema({
     in: ['body'],
     errorMessage: 'la propiedad procedencia es requerida',
     isObject: true,
-    optional: {
-      options: {
-        values: 'falsy'
-      }
-    },
+    optional: true,
     custom: {
       options: (value) => {
         if (!value.opcion) {
@@ -41,10 +37,21 @@ const surveySchema = checkSchema({
       }
     }
   },
+  'procedencia.opcion': {
+    in: ['body'],
+    errorMessage: 'la propiedad procedencia.opcion debe ser un string',
+    optional: true,
+    isString: true
+  },
   acompaniante: {
     in: ['body'],
     errorMessage: 'la propiedad acompaniante es requerida',
     isObject: true,
+    optional: {
+      options: {
+        values: 'falsy'
+      }
+    },
     custom: {
       options: (value) => {
         if (!value.opciones) {
@@ -55,6 +62,20 @@ const surveySchema = checkSchema({
         }
         if (value.opciones.acom_otro && !(value.texto_otros.length > 0)) {
           throw new Error('la propiedad texto_otros es requeridad si el booleano acom_otro es true');
+        }
+        return true;
+      }
+    }
+  },
+  'acompaniante.opciones': {
+    in: ['body'],
+    errorMessage: 'la propiedad acompaniante.opciones es requerida',
+    isObject: true,
+    optional: true,
+    custom: {
+      options: (value) => {
+        if (!value.acom_solo && !value.acom_pareja && !value.acom_familia && !value.acom_amigo && !value.acom_excusion && !value.acom_otro) {
+          throw new Error('la propiedad acompaniante.opciones debe tener al menos un valor true');
         }
         return true;
       }

@@ -5,7 +5,6 @@ const Procedencia = sequelize.define('Procedencia', {
   procedencia: {
     type: DataTypes.ENUM('córdoba capital', 'otra localidad', 'otra provincia', 'otro país'),
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [['córdoba capital', 'otra localidad', 'otra provincia', 'otro país']]
     }
