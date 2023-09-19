@@ -34,6 +34,8 @@ export class BarChartProcedenciaComponent {
         }
       ],
       chart: {
+        height: 250,
+        width: 400,
         type: "bar"
       },
 
