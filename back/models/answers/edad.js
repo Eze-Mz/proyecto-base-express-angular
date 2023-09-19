@@ -5,7 +5,6 @@ const Edad = sequelize.define('Edad', {
   edad: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    unique: true,
     validate: {
       isNumeric: true,
       min: 0,
@@ -13,6 +12,7 @@ const Edad = sequelize.define('Edad', {
     }
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  paranoid: true
 });
 module.exports = Edad;

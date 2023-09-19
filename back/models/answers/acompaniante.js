@@ -6,7 +6,6 @@ const Acompaniante = sequelize.define('Acompaniante', {
   acom_solo: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [[true, false]]
     }
@@ -14,7 +13,6 @@ const Acompaniante = sequelize.define('Acompaniante', {
   acom_pareja: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [[true, false]]
     }
@@ -22,7 +20,6 @@ const Acompaniante = sequelize.define('Acompaniante', {
   acom_familia: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [[true, false]]
     }
@@ -30,15 +27,13 @@ const Acompaniante = sequelize.define('Acompaniante', {
   acom_amigo: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [[true, false]]
     }
   },
-  acom_excusion: {
+  acom_excursion: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [[true, false]]
     }
@@ -46,7 +41,6 @@ const Acompaniante = sequelize.define('Acompaniante', {
   acom_otro: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [[true, false]]
     }
@@ -60,7 +54,8 @@ const Acompaniante = sequelize.define('Acompaniante', {
   }
 
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  paranoid: true
 });
 
 module.exports = Acompaniante;

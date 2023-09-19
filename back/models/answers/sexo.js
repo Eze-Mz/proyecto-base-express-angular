@@ -12,6 +12,7 @@ const Sexo = sequelize.define('Sexo', {
     }
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  paranoid: true
 });
 module.exports = Sexo;

@@ -8,30 +8,17 @@ const Procedencia = sequelize.define('Procedencia', {
     unique: true,
     validate: {
       isIn: [['córdoba capital', 'otra localidad', 'otra provincia', 'otro país']]
-    },
-    otro_localidad: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [2, 100]
-      }
-    },
-    otro_provincia: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [2, 100]
-      }
-    },
-    otro_pais: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [2, 100]
-      }
+    }
+  },
+  proc_otro_text: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    validate: {
+      len: [2, 100]
     }
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  paranoid: true
 });
 module.exports = Procedencia;
