@@ -6,12 +6,12 @@ const Sexo = sequelize.define('Sexo', {
   sexo: {
     type: DataTypes.ENUM('masculino', 'femenino'),
     allowNull: false,
-    unique: true,
     validate: {
       isIn: [['masculino', 'femenino']]
     }
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  paranoid: true
 });
 module.exports = Sexo;
