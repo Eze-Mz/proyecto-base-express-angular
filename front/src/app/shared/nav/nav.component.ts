@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  userLoginOn:boolean=false;
-  constructor() { }
+  userIsLogged=false;
+  constructor(private login: LoginService) { }
 
   ngOnInit(): void {
+    this.userIsLogged = this.login.isLogged();
+  }
+
+  cerrarSesion(){
+    console.log("LOGOUT");
+    
+    this.login.logout();
   }
 
 }

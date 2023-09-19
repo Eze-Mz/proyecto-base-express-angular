@@ -1,5 +1,15 @@
 const { User } = require('../models');
 
+const userFindAttributes = {
+  attributes: {
+    exclude: ['password', 'createdAt', 'updatedAt', 'RoleId']
+  },
+  include: {
+    association: 'Role',
+    attributes: ['roleName']
+  }
+};
+
 const createUser = async (user) => {
   try {
     const newUser = await User.create(user);
@@ -38,8 +48,19 @@ const getUserByEmail = async (email) => {
   }
 };
 
+const getUsersByAdminId = async (adminId) => {
+  try {
+    const user = await User.findAll({ where: { UserId: adminId }, ...userFindAttributes });
+    return user;
+  } catch (error) {
+    console.error('Error al buscar un usuario', error);
+    throw error;
+  }
+};
+
 module.exports = {
   createUser,
   getUsers,
-  getUserByEmail
+  getUserByEmail,
+  getUsersByAdminId
 };

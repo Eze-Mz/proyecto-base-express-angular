@@ -11,14 +11,16 @@ const users = [
     lastName: 'Doe',
     email: 'jane@mail.com',
     password: '1234',
-    RoleId: 2
+    RoleId: 2,
+    UserId: 1
   },
   {
     firstName: 'John',
     lastName: 'Smith',
     email: 'johnsmith@mail.com',
     password: '1234',
-    RoleId: 2
+    RoleId: 2,
+    UserId: 1
   }
 ];
 

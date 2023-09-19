@@ -6,11 +6,13 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 [Trello](https://trello.com/b/XanHBY7J/xacademy)
 
+[Sala de meet](https://meet.google.com/kxx-pchq-huq)
+
 [Drive](https://drive.google.com/drive/folders/1IxqBTvYTILYmmq27C7sxkTb-GLeJNiLi?usp=drive_link)
 
 [Sketch en excalidraw](https://excalidraw.com/#json=UL-8pkQ0Wm5VtEvjFlPdC,1ZEOxX_mH0YgPop2-7IFuA)
 
-[REST API testint: Hoppscotch](https://hoppscotch.io/)
+[REST API testing: Hoppscotch](https://hoppscotch.io/)
 
 [Diagrama base de datos](https://lucid.app/lucidchart/81309934-611a-4650-9aba-fcca37e18f05/edit?viewport_loc=-628%2C-784%2C2220%2C1026%2C0_0&invitationId=inv_84295554-b604-42fd-b78b-f4fbcdcb1add)
 
@@ -83,6 +85,9 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 - [helmet](https://www.npmjs.com/package/helmet) -> Helmet helps secure Express apps by setting HTTP response headers.
 - [cors](https://www.npmjs.com/package/cors) -> CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 - Node crypto module to create passwords. See: https://www.youtube.com/watch?v=NuyzuNBFWxQ 
+- [express-validator](https://express-validator.github.io/docs/) -> validaciones, sobre todo para los datos de las encuestas.
+
+
 ### Dev
 - [eslint](https://eslint.org/docs/latest/use/getting-started) -> ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - [eslint-config-semistandard](https://www.npmjs.com/package/eslint-config-semistandard) -> standard styles but with semicolons
