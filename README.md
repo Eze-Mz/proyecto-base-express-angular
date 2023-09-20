@@ -97,13 +97,23 @@ Proyecto base para angular en el front y express en el back. Propuesta para el X
 
 ### Config
 - [dotenv](https://www.npmjs.com/package/dotenv) -> a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
-- [envalid]()
 
 ### Database
 We use a postgreSQL database, with sequelize ORM.
 - [pg](https://node-postgres.com/) -> node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database. It has support for callbacks, promises, async/await, connection pooling, prepared statements, cursors, streaming results, C/C++ bindings, rich type parsing, and more!
 - [pg-hstore](https://www.npmjs.com/package/pg-hstore) -> A node package for serializing and deserializing JSON data to hstore format
 
+### Test production database
+Create the following .env.production
+- PORT=4001
+- APP=academy
+- DB_URL= DATABASE_URL_HERE
+- SECRET="wHhrf7oYN5f1BszEucaGqAY0iwKx8uMRpi4TuKwGW+D82POFWNsgtrHbKJUlowuhFmb8Q7kDZw5D6vm9yJ8y+7gxnLv3lZocOet2muGaNcniWfAWqVUI6scrGJUCfW65cCespvC5UWfQFDIHBxQb7R5h+ZfuYrDJ6CJfhBb7ZCJ2canitma2rLOCnCRWfjkYdqTHEX3tXdr5UA2UmLx1vCx5HWowO0+mo8O72oAxxoMpIZgmKSM7zlG++L514pkNucb+IXcylo9YZNXboCbr/Qg2Jk6rrxNvxRQ9XtAOENmor5IGjlZ/WkfwjtOrwyBhmfqr2I+UbVBp7YEt48Rqgg=="
+
+
+# solo cambiar de ser necesario
+DB_POPULATE=false
+DB_LOAD_SURVEYS=false
 
 ## Preguntas
 > ### ¿Por qué no se llama la función `app.listen()` para iniciar el servidor?
