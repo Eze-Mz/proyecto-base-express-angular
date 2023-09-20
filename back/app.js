@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` });
 
 const express = require('express');
 // security headers
@@ -6,18 +6,14 @@ const helmet = require('helmet');
 // cors
 const cors = require('cors');
 // logger
-const logger = require('./utils/winston.logger');
+/// const logger = require('./utils/winston.logger');
 // db-config
 const { initializeDB } = require('./config/db-config');
-// envalid
-const validateEnv = require('./utils/validateEnv');
 
 // Rutes:
 const routes = require('./routes');
 
 const app = express();
-// validate env
-validateEnv.validate();
 
 // helmet config
 app.use(helmet({
