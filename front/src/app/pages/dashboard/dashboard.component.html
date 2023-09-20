@@ -1,4 +1,5 @@
 <app-nav></app-nav>
+<main class="min-height">
 <p *ngIf="!userIsLogged">Usuario No Autenticado</p>
 <p *ngIf="userIsLogged">Usuario Autenticado</p>
 <div *ngIf="userIsLogged && userIsAdmin">
@@ -16,3 +17,4 @@
     </div>
     
 </div>
+</main>

@@ -5,7 +5,7 @@ const createProcedencia = async (procedencia, surveyId) => {
     procedencia: procedencia.opcion,
     SurveyId: surveyId
   };
-  if (procedencia.opcion in ['otra localidad', 'otra provincia', 'otro país']) {
+  if (['otra localidad', 'otra provincia', 'otro país'].includes(procedencia.opcion)) {
     newProcedencia.proc_otro_text = procedencia.texto_otros;
   }
 

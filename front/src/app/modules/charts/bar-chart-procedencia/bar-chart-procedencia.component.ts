@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 
 import {
   ChartComponent,
@@ -7,6 +7,8 @@ import {
   ApexXAxis,
   ApexTitleSubtitle
 } from "ng-apexcharts";
+import { DatabaseService } from "src/app/core/services/database.service";
+
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -20,17 +22,17 @@ export type ChartOptions = {
   templateUrl: './bar-chart-procedencia.component.html',
   styleUrls: ['./bar-chart-procedencia.component.css']
 })
-export class BarChartProcedenciaComponent {
+export class BarChartProcedenciaComponent implements OnInit {
 
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  constructor() {
+  constructor(private db: DatabaseService) {
     this.chartOptions = {
       series: [
         {
           name: "Cantidad",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+          data: [0,0,0,0]
         }
       ],
       chart: {
@@ -46,5 +48,28 @@ export class BarChartProcedenciaComponent {
         categories: ['córdoba capital', 'otra localidad', 'otra provincia', 'otro país']
       }
     };
+  }
+
+  ngOnInit(): void {
+    this.db.getAnswersByType('procedencia').subscribe((data) => {
+      const newData = data.reduce((acc, curr) => {
+        if (curr.procedencia === 'córdoba capital') {
+          acc[0] += 1;
+        } else if (curr.procedencia === 'otra localidad') {
+          acc[1] += 1;
+        } else if (curr.procedencia === 'otra provincia') {
+          acc[2] += 1;
+        } else if (curr.procedencia === 'otro país') {
+          acc[3] += 1;
+        }
+        return acc;
+      }, [0, 0, 0, 0]);
+
+      this.chartOptions.series = [{
+        name: "Cantidad",
+        data: newData
+      }]
+    })
+      
   }
 }
