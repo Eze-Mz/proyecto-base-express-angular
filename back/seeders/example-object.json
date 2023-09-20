@@ -1,0 +1,20 @@
+{
+    "edad": "15",
+    "sexo": "masculino",
+    "procedencia": {
+      "opcion": "cordoba capital",
+      "texto_otros": ""
+    },
+    "acompaniante": {
+        "opciones": {
+          "acom_solo": true,
+          "acom_pareja": false,
+          "acom_familia": false,
+          "acom_amigo": false,
+          "acom_excursion": false,
+          "acom_otro": false
+        },
+        "texto_otros" : ""
+    }
+  }
+  

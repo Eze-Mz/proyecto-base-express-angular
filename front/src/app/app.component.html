@@ -1,9 +1,6 @@
-<h1>Test Chart</h1>
-<div style="width: fit-content; margin: 0 auto;">
-  <apx-chart #chart 
-  [series]="chartOptions.series" 
-  [chart]="chartOptions.chart" 
-  [xaxis]="chartOptions.xaxis"
-  [title]="chartOptions.title">
-</apx-chart>
+<app-header></app-header>
+<router-outlet></router-outlet>
+
+<div class="fixed-bottom">
+  <app-footer></app-footer>
 </div>

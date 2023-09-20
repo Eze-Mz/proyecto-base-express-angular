@@ -55,5 +55,6 @@ const User = sequelize.define('User', {
     allowNull: false
   }
 });
+User.hasMany(User);
 
 module.exports = User;

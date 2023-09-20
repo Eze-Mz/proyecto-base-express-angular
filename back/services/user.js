@@ -13,8 +13,13 @@ const checkIfUserExists = async (email) => {
   return userFound || false;
 };
 
+const getUsersByAdminId = async (adminId) => {
+  return await userProvider.getUsersByAdminId(adminId);
+};
+
 module.exports = {
   createUser,
   getUsers,
-  checkIfUserExists
+  checkIfUserExists,
+  getUsersByAdminId
 };
