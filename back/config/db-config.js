@@ -37,7 +37,6 @@ const initializeDB = async () => {
     require('../models');
     console.log(sequelize.models);
     if (populateDB) {
-      console.log('CODE GOES HERE WHY?');
       await sequelize.sync({ force: true });
       await createRolesOnStart();
       await createUsersOnStart();
