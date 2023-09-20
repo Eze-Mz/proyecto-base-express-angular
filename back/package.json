@@ -5,13 +5,13 @@
   "scripts": {
     "db": "docker compose up -d",
     "server": "nodemon ./bin/www",
+    "server-production": "NODE_ENV=production nodemon ./bin/www",
     "dev": "npm run db && npm run server"
   },
   "dependencies": {
     "cors": "2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.3.1",
-    "envalid": "7.3.1",
     "express": "~4.16.1",
     "express-validator": "^7.0.1",
     "helmet": "7.0.0",

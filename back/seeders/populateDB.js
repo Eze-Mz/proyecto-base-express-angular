@@ -1,4 +1,4 @@
-const { users } = require('./mockups.js');
+const { users } = require('./userMockups.js');
 
 const createUsersOnStart = async () => {
   try {
@@ -25,7 +25,20 @@ const createRolesOnStart = async () => {
   }
 };
 
+const createSurveysOnStart = async () => {
+  try {
+    const { surveyService } = require('../services');
+    const { exampleSurveys } = require('./surveyMockups.js');
+    for (let i = 0; i < exampleSurveys.length; i++) {
+      await surveyService.createSurvey(exampleSurveys[i]);
+    }
+  } catch (error) {
+    console.error('Error al crear las encuestas', error);
+  }
+};
+
 module.exports = {
   createUsersOnStart,
-  createRolesOnStart
+  createRolesOnStart,
+  createSurveysOnStart
 };
