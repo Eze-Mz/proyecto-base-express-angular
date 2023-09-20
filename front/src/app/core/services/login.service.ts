@@ -48,7 +48,7 @@ export class LoginService {
 
   public logout(): void {
     window.sessionStorage.clear();
-    this.router.navigateByUrl('/inicio');
+    this.router.navigate(['/inicio']);
     window.location.reload();
   }
 

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { throwIfAlreadyLoaded } from '../core/core-import.guard';
 
 import { HttpClientModule } from '@angular/common/http';
+import { insertTokenInterceptorProvider } from './interceptors/insert-token.interceptor';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   exports: [],
-  providers: []
+  providers: [insertTokenInterceptorProvider]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
