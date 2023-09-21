@@ -8,16 +8,9 @@ import { LoginService } from 'src/app/core/services/login.service';
 })
 export class NavComponent implements OnInit {
   userIsLogged=false;
-  constructor(private login: LoginService) { }
+  constructor(public login: LoginService) { }
 
   ngOnInit(): void {
     this.userIsLogged = this.login.isLogged();
   }
-
-  cerrarSesion(){
-    console.log("LOGOUT");
-    
-    this.login.logout();
-  }
-
 }
