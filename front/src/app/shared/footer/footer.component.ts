@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -6,6 +6,5 @@ import { Component, HostBinding, Input } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  @HostBinding('class.fixed-bottom') get fixed() { return this.isFixed; }
-  @Input() isFixed = true;
+
 }
