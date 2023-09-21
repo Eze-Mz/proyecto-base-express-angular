@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from './modules/charts/charts.module';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ResultadosComponent } from './pages/resultados/resultados.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NavComponent,
     HomeComponent,
     NotFoundComponent,
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,
