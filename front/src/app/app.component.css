@@ -1,0 +1,7 @@
+/*Esto hace que el margin-top: auto del footer funcione, 
+ni idea de por qué*/
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

@@ -1,20 +1,16 @@
 <app-nav></app-nav>
-<main class="min-height">
-<p *ngIf="!userIsLogged">Usuario No Autenticado</p>
-<p *ngIf="userIsLogged">Usuario Autenticado</p>
-<div *ngIf="userIsLogged && userIsAdmin">
-    <button class="btn btn-primary">Registrar Encuestador</button>
-    <button class="btn btn-primary">Cargar/Modificar Encuesta</button>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <app-bar-chart-procedencia></app-bar-chart-procedencia>
-            </div>
-            <div class="col">
-                <app-bar-chart-procedencia></app-bar-chart-procedencia>
-            </div>
-        </div>
+<main class="pb-5" *ngIf="userIsLogged">
+    <div class="d-flex flex-column gap-4 pt-4 container max-width-buttons">
+        <div *ngIf="userIsAdmin; then adminOptions else userOptions"></div>
     </div>
-    
-</div>
+    <ng-template #adminOptions>
+        <button class="btn btn-primary">Registrar Encuestador</button>
+        <button class="btn btn-primary">Cargar/Modificar Encuesta</button>
+        <button class="btn btn-primary" routerLink="./resultados">Ver resultados</button>
+    </ng-template>
+    <ng-template #userOptions>
+        <button class="btn btn-primary">Cargar encuesta</button>
+        <button class="btn btn-primary">Ver encuestas cargadas</button>
+    </ng-template>
+
 </main>
