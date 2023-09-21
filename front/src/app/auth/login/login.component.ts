@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit{
         this.isLogged = true;
         this.isLoginFail = false;
         this.login.setToken(data);
-        this.router.navigateByUrl('/inicio');
+        this.router.navigateByUrl('/dashboard');
         this.loginForm.reset();
         this.inSubmission = false;
       },

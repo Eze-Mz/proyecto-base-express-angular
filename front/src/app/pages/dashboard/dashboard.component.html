@@ -1,7 +1,6 @@
+
 <app-nav></app-nav>
-<main class="min-height">
-<p *ngIf="!userIsLogged">Usuario No Autenticado</p>
-<p *ngIf="userIsLogged">Usuario Autenticado</p>
+<main>
 <div *ngIf="userIsLogged && userIsAdmin">
     <button class="btn btn-primary">Registrar Encuestador</button>
     <button class="btn btn-primary">Cargar/Modificar Encuesta</button>
