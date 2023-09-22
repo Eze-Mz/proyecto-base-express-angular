@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'inicio', component:HomeComponent},
   {path:'dashboard',component:DashboardComponent, canActivate:[loginGuard]},
   {path: 'dashboard/resultados', component: ResultadosComponent, canActivate:[adminGuard]},
-  {path: 'dashboard/encuestas', component: TablaEncuestasComponent, canActivate:[adminGuard]},
+  {path: 'dashboard/encuestas', component: TablaEncuestasComponent, canActivate:[loginGuard]},
   {path:'**',component: NotFoundComponent}
 ];
 
