@@ -38,7 +38,12 @@ const getSurvey = async () => {
   return await surveyProvider.getSurvey();
 };
 
+const getSurveyCount = async () => {
+  return await surveyProvider.getSurveyCount();
+};
+
 module.exports = {
   createSurvey,
-  getSurvey
+  getSurvey,
+  getSurveyCount
 };
