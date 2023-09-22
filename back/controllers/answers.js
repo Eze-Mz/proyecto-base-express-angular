@@ -6,9 +6,10 @@ const getAllAnswerByType = async (req, res) => {
     res.json(answers);
   } catch (error) {
     // extraer el mensaje de error de sequelize
-    const message = error.errors[0].message;
-    console.log(error);
-    res.status(500).json({ action: 'getAllAnswerByType', error: message });
+
+    // const sequelizeError = error.errors[0].message;
+    console.log(error.message);
+    res.status(500).json({ action: 'getAllAnswerByType', error });
   }
 };
 

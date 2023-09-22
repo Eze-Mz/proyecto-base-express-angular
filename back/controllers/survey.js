@@ -13,7 +13,7 @@ const createSurvey = async (req, res) => {
     // extraer el mensaje de error de sequelize
     // const message = error.errors[0].message;
     console.log(error);
-    res.status(500).json({ action: 'createSurvey', error });
+    res.status(500).json({ action: 'createSurvey', error: error.message });
   }
 };
 
@@ -26,7 +26,17 @@ const getSurvey = async (req, res) => {
   }
 };
 
+const count = async (req, res) => {
+  try {
+    const count = await surveyService.getSurveyCount();
+    res.json(count);
+  } catch (error) {
+    res.status(500).json({ action: 'count', error: error.message });
+  }
+};
+
 module.exports = {
   createSurvey,
-  getSurvey
+  getSurvey,
+  count
 };

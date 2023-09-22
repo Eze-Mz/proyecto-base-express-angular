@@ -40,6 +40,16 @@ const getSurveyByUserId = async (UserId) => {
   }
 };
 
+const getSurveyCount = async () => {
+  try {
+    const surveyCount = await Survey.count();
+    return surveyCount;
+  } catch (error) {
+    console.error('Error al buscar las encuestas', error);
+    throw error;
+  }
+};
+
 const updateSurvey = async (updatedSurvey, SurveyId) => {
   try {
     const answer = await Survey.update(updatedSurvey, { where: { SurveyId } });
@@ -55,5 +65,6 @@ module.exports = {
   getSurvey,
   getSurveyById,
   getSurveyByUserId,
-  updateSurvey
+  updateSurvey,
+  getSurveyCount
 };
