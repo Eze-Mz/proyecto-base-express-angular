@@ -30,9 +30,13 @@
         <span class="visually-hidden">Loading...</span>
       </div>
 
+      
     </div>
     <div *ngIf="isSubmitted && isLoginFail" class="alert alert-danger mt-3">
       Fallo en el login: {{errorMsj}}
     </div>
   </form>
+  <div class="d-flex align-items-center my-4">
+    <button class="btn-white" (click)="toggleUser()">probar como {{tipoUsuario}}</button>
+  </div>
 </div>
