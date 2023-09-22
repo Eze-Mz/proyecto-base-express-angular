@@ -9,24 +9,23 @@ import {
   ApexResponsive
 } from "ng-apexcharts";
 import { DatabaseService } from "src/app/core/services/database.service";
-import { ANSWER_IDS, IProcedencia } from "src/app/models/answers";
+import { ANSWER_IDS, IAcompaniamiento } from "src/app/models/answers";
 
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
-  responsive: ApexResponsive[];
   xaxis: ApexXAxis;
   title: ApexTitleSubtitle;
+  responsive: ApexResponsive[];
 };
 
 @Component({
-  selector: 'app-bar-chart-procedencia',
-  templateUrl: './bar-chart-procedencia.component.html',
-  styleUrls: ['./bar-chart-procedencia.component.css']
+  selector: 'app-bar-chart-acompaniamiento',
+  templateUrl: './bar-chart-acompaniamiento.component.html',
+  styleUrls: ['./bar-chart-acompaniamiento.component.css']
 })
-export class BarChartProcedenciaComponent implements OnInit {
-
+export class BarChartAcompaniamientoComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
@@ -35,7 +34,7 @@ export class BarChartProcedenciaComponent implements OnInit {
       series: [
         {
           name: "Cantidad",
-          data: [0,0,0,0]
+          data: [0,0,0,0,0,0]
         }
       ],
       chart: {
@@ -45,7 +44,7 @@ export class BarChartProcedenciaComponent implements OnInit {
       },
 
       title: {
-        text: "Procedencia de los turistas",
+        text: "Con quienes viajan los turistas",
         style: {
           fontSize:  '20px',
           fontWeight:  'bold',
@@ -53,7 +52,7 @@ export class BarChartProcedenciaComponent implements OnInit {
         }
       },
       xaxis: {
-        categories: ['córdoba capital', 'otra localidad', 'otra provincia', 'otro país']
+        categories: ['solo', 'con pareja', 'con familia', 'con amigos', 'en excursión', 'otros']
       },
       responsive: [
         {
@@ -77,20 +76,31 @@ export class BarChartProcedenciaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.db.getAnswersByType(ANSWER_IDS.PROCEDENCIA).subscribe((data) => {
-      const dataTyped =  data as IProcedencia[];
+    this.db.getAnswersByType(ANSWER_IDS.ACOMPANIANTE).subscribe((data) => {
+      const dataTyped = data as IAcompaniamiento[];
       const newData = dataTyped.reduce((acc, curr) => {
-        if (curr.procedencia === 'córdoba capital') {
-          acc[0] += 1;
-        } else if (curr.procedencia === 'otra localidad') {
-          acc[1] += 1;
-        } else if (curr.procedencia === 'otra provincia') {
-          acc[2] += 1;
-        } else if (curr.procedencia === 'otro país') {
-          acc[3] += 1;
+        switch (true) {
+          case curr.acom_solo:
+            acc[0]++;
+            break;
+          case curr.acom_pareja:
+            acc[1]++;
+            break;
+          case curr.acom_familia:
+            acc[2]++;
+            break;
+          case curr.acom_amigo:
+            acc[3]++;
+            break;
+          case curr.acom_excursion:
+            acc[4]++;
+            break;
+          default:
+            acc[5]++;
+            break;
         }
         return acc;
-      }, [0, 0, 0, 0]);
+      }, [0, 0, 0, 0,0,0]); 
 
       this.chartOptions.series = [{
         name: "Cantidad",

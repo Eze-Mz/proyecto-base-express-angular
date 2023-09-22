@@ -6,12 +6,14 @@ import { loginGuard } from './core/guards/login.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { adminGuard } from './core/guards/admin.guard';
+import { TablaEncuestasComponent } from './pages/tabla-encuestas/tabla-encuestas.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'inicio', pathMatch:'full'},
   {path:'inicio', component:HomeComponent},
   {path:'dashboard',component:DashboardComponent, canActivate:[loginGuard]},
   {path: 'dashboard/resultados', component: ResultadosComponent, canActivate:[adminGuard]},
+  {path: 'dashboard/encuestas', component: TablaEncuestasComponent, canActivate:[adminGuard]},
   {path:'**',component: NotFoundComponent}
 ];
 
