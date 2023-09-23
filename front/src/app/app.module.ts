@@ -11,6 +11,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from './modules/charts/charts.module';
+import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ResultadosComponent } from './pages/resultados/resultados.component';
+import { TablaEncuestasComponent } from './pages/tabla-encuestas/tabla-encuestas.component';
 
 
 @NgModule({
@@ -21,6 +25,10 @@ import { ChartsModule } from './modules/charts/charts.module';
     DashboardComponent,
     LoginComponent,
     NavComponent,
+    HomeComponent,
+    NotFoundComponent,
+    ResultadosComponent,
+    TablaEncuestasComponent,
   ],
   imports: [
     BrowserModule,

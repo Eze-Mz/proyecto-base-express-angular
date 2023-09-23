@@ -46,10 +46,12 @@ export class LoginService {
   }
 
 
-  public logout(): void {
+  public logout($event?: Event): void {
+    if ($event) {
+      $event.preventDefault();
+    }
     window.sessionStorage.clear();
-    this.router.navigateByUrl('/inicio');
-    window.location.reload();
+    this.router.navigateByUrl('/');
   }
 
 }

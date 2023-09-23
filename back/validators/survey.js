@@ -88,25 +88,5 @@ const surveySchema = checkSchema({
     }
   }
 });
-/* const exampleObject = {
-  Edad: 15,
-  Sexo: 'Masculino',
-  Procedencia: {
-    opcion: 'Otro',
-    texto_otros: ''
-  },
-  Acompaniante: {
-    opciones: {
-      acom_solo: true,
-      acom_pareja: false,
-      acom_familia: false,
-      acom_amigo: false,
-      acom_excusion: false,
-      acom_otro: false
-    },
-    texto_otros: ''
-  }
-};
- */
 
 module.exports = { surveySchema };
