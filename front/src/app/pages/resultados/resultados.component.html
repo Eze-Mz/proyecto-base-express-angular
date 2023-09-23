@@ -1,0 +1,22 @@
+<app-nav></app-nav>
+<div class="container mt-4 mb-4">
+    <h1 class="mt-4">Resultados de las encuestas</h1>
+    <h4 class="mt-4">Cantidad de encuestas realizadas: {{cantidadEncuestas}}</h4>
+    <div class="row row-cols-1 row-cols-lg-2 gap-5 gap-lg-0 mt-5">
+        <div class="col">
+            <app-bar-chart-procedencia></app-bar-chart-procedencia>
+        </div>
+        <div class="col">
+            <app-bar-chart-acompaniamiento></app-bar-chart-acompaniamiento>
+        </div>
+        <div class="col">
+            <app-pie-chart-sexo></app-pie-chart-sexo>
+        </div>
+        <div class="col">
+            <app-boxplot-edad-sexo></app-boxplot-edad-sexo>
+        </div>
+    </div>
+
+
+</div>
+

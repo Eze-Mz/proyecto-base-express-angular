@@ -18,9 +18,11 @@ export class LoginComponent implements OnInit{
   loginUser!: LoginUser;
   errorMsj!: string;
 
+  tipoUsuario = "encuestador";
+
   loginForm= this.formBuilder.group ({
-    email:['john@mail.com', [Validators.required, Validators.email]],
-    password:['1234', Validators.required],
+    email:['admin@mail.com', [Validators.required, Validators.email]],
+    password:['admin1234', Validators.required],
   })
   constructor (private formBuilder:FormBuilder, private router:Router, private login:LoginService) {}
 
@@ -50,7 +52,7 @@ export class LoginComponent implements OnInit{
         this.isLogged = true;
         this.isLoginFail = false;
         this.login.setToken(data);
-        this.router.navigateByUrl('/inicio');
+        this.router.navigateByUrl('/dashboard');
         this.loginForm.reset();
         this.inSubmission = false;
       },
@@ -64,6 +66,18 @@ export class LoginComponent implements OnInit{
         this.inSubmission = false;
       },
     });
+  }
+
+  toggleUser() {
+    if(this.tipoUsuario == "encuestador"){
+      this.tipoUsuario = "administrador";
+      this.email.setValue("encuestador@mail.com");
+      this.password.setValue("encuestador1234");
+    } else {
+      this.tipoUsuario = "encuestador";
+      this.email.setValue("admin@mail.com");
+      this.password.setValue("admin1234");
+    }
   }
 }
 

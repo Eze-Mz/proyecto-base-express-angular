@@ -1,3 +1,7 @@
 form{
   margin: 20px;
 }
+
+.login-max-width{
+  max-width: 500px;
+}

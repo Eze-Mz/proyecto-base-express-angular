@@ -5,9 +5,8 @@ const createAcompaniante = async (acompaniante, surveyId) => {
     ...acompaniante.opciones,
     SurveyId: surveyId
   };
-  console.log(newAcompaniante);
-  if (acompaniante.acom_otro) {
-    newAcompaniante.acom_otro_text = acompaniante.acom_otro_text;
+  if (acompaniante.opciones.acom_otro) {
+    newAcompaniante.acom_otro_text = acompaniante.texto_otros;
   }
 
   return await acompanianteProvider.createAnswer(newAcompaniante);
