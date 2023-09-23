@@ -1,6 +1,23 @@
-footer {
-  background: rgb(49, 49, 110);
+/* Estilo para el footer */
+footer.jumbotron {
+  background-color: rgb(49, 49, 110);
+  padding: 20px 0;
 }
-:host {
-  margin-top: auto;
+
+/* Estilo para el texto del footer */
+footer.jumbotron p {
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Estilo para los iconos de redes sociales */
+footer.jumbotron a.text-white {
+  font-size: 24px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* Cambia el color de los íconos de redes sociales al pasar el ratón por encima */
+footer.jumbotron a.text-white:hover {
+  color: #007bff;
 }
