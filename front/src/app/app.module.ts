@@ -9,8 +9,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from './modules/charts/charts.module';
+import { CuestionarioTuristasComponent } from './shared/cuestionario-turistas/cuestionario-turistas.component';
+
 
 
 @NgModule({
@@ -21,13 +23,15 @@ import { ChartsModule } from './modules/charts/charts.module';
     DashboardComponent,
     LoginComponent,
     NavComponent,
+    CuestionarioTuristasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
