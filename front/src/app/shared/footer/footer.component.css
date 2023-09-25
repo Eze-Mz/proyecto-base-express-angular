@@ -21,3 +21,9 @@ footer.jumbotron a.text-white {
 footer.jumbotron a.text-white:hover {
   color: #007bff;
 }
+
+/* Estilos derechos de autor */
+.footer p:last-child {
+  font-size: 14px;
+  margin-top: 10px;
+}
