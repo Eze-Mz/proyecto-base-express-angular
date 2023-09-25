@@ -1,3 +1,9 @@
+/*Para que el footer se mantenga al final
+aunque no haya suficiente contenido para llenar la página */
+:host {
+  margin-top: auto;
+}
+
 /* Estilo para el footer */
 footer.jumbotron {
   background-color: rgb(49, 49, 110);
@@ -18,7 +24,7 @@ footer.jumbotron a.text-white {
 }
 
 /* Cambia el color de los íconos de redes sociales al pasar el ratón por encima */
-footer.jumbotron a.text-white:hover {
+i:hover {
   color: #007bff;
 }
 
