@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'',redirectTo:'inicio', pathMatch:'full'},
   {path:'inicio', component:HomeComponent},
   {path:'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate:[loginGuard]},
-  
+
   {path:'**',component: NotFoundComponent}
 ];
 
