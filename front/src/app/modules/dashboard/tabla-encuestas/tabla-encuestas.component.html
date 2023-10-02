@@ -7,34 +7,43 @@
                 <colgroup>
                     <col />
                     <col class="col-min-100"/>
-                    <col class="col-min-100"/>
-                    <col class="col-min-100"/>
                 </colgroup>
                 <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Id</th>
+                      <th scope="col">Fecha creación</th>
+                      <th scope="col">Fecha actualización</th>
+                      <th scope="col">Id encuestador</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Edad</th>
+                      <th scope="col">Sexo</th>
+                      <th scope="col">Procedencia</th>
+                      <th scope="col">Procedencia_otros</th>
+                      <th scope="col">Acompañante_amigo</th>
+                      <th scope="col">Acompañante_excursión</th>
+                      <th scope="col">Acompañante_familia</th>
+                      <th scope="col">Acompañante_pareja</th>
+                      <th scope="col">Acompañante_solo</th>
+                      <th scope="col">Acompañante_otro</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td colspan="2">Larry the Bird</td>
-                      <td>@twitter</td>
+                    <tr *ngFor="let survey of this.surveys">
+                      <th scope="row">{{survey.id}}</th>
+                      <td>{{survey.createdAt}}</td>
+                      <td>{{ survey.updatedAt ? survey.updatedAt: survey.createdAt}}</td>
+                      <td>{{survey.User.id}}</td>
+                      <td>{{survey.state}}</td>
+                      <td>{{survey.edad.edad}}</td>
+                      <td>{{survey.sexo.sexo}}</td>
+                      <td>{{survey.procedencia.procedencia}}</td>
+                      <td>{{survey.procedencia.proc_otro_text}}</td>
+                      <td>{{survey.acompaniante.acom_amigo}}</td>
+                      <td>{{survey.acompaniante.acom_excursion}}</td>
+                      <td>{{survey.acompaniante.acom_familia}}</td>
+                      <td>{{survey.acompaniante.acom_pareja}}</td>
+                      <td>{{survey.acompaniante.acom_solo}}</td>
+                      <td>{{survey.acompaniante.acom_otro_text}}</td>
                     </tr>
                   </tbody>
             </table>
@@ -52,3 +61,4 @@
           </nav>
     </div>
 </div>
+

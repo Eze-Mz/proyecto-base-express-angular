@@ -12,7 +12,7 @@ const createSurvey = async (survey) => {
 
 const getSurvey = async () => {
   try {
-    const survey = await Survey.findAll({ include: { all: true } });
+    const survey = await Survey.findAll({ include: { all: true }, order: [['createdAt', 'DESC'], ['id', 'DESC']], attributes: { exclude: ['UserId'] }, limit: 5 });
     return survey;
   } catch (error) {
     console.error('Error al buscar las encuestas', error);

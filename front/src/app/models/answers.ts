@@ -47,3 +47,17 @@ export interface IEdad {
   deletedAt: string | null,
   SurveyId: number,
 }
+
+export interface ISurveyAnswers {
+  id: number,
+  createdAt: string,
+  updatedAt: string,
+  deletedAt: string | null,
+  updateUser: number | null,
+  state: string,
+  edad: IEdad,
+  sexo: ISexo,
+  procedencia: IProcedencia,
+  acompaniante: IAcompaniamiento,
+  User: any
+}

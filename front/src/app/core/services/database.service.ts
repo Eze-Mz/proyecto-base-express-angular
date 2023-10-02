@@ -18,4 +18,8 @@ export class DatabaseService {
   surveyCount(): Observable<number> {
     return this.api.get('survey/count');
   }
+
+  getAllSurveys(): Observable<any> {
+    return this.api.get('survey');
+  }
 }
