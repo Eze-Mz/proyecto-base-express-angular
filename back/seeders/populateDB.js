@@ -30,6 +30,8 @@ const createSurveysOnStart = async () => {
     const { surveyService } = require('../services');
     const { exampleSurveys } = require('./surveyMockups.js');
     for (let i = 0; i < exampleSurveys.length; i++) {
+      const survey = exampleSurveys[i];
+      survey.userId = Math.floor(Math.random() * 3) + 1;
       await surveyService.createSurvey(exampleSurveys[i]);
     }
   } catch (error) {
