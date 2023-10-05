@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 
 
@@ -23,6 +24,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     LoginComponent,
     HomeComponent,
     NotFoundComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
