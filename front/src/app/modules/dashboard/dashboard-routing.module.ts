@@ -7,6 +7,7 @@ import { loginGuard } from 'src/app/core/guards/login.guard';
 import { CuestionarioTuristasComponent } from './cuestionario-turistas/cuestionario-turistas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuOpcionesComponent } from './menu-opciones/menu-opciones.component';
+import { SigninComponent } from 'src/app/auth/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'resultados', component: ResultadosComponent, canActivate: [adminGuard] },
       { path: 'encuestas', component: TablaEncuestasComponent, canActivate: [loginGuard] },
       { path: 'cuestionario-turistas', component: CuestionarioTuristasComponent, canActivate: [loginGuard] },
+      { path: 'registro', component: SigninComponent, canActivate: [loginGuard] },
     ]
   },
 ];

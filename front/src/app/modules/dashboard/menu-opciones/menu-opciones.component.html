@@ -3,7 +3,7 @@
         <div *ngIf="userIsAdmin; then adminOptions else userOptions"></div>
     </div>
     <ng-template #adminOptions>
-        <button class="btn btn-primary">Registrar Encuestador</button>
+        <button class="btn btn-primary" routerLink="./registro">Registrar Encuestador</button>
         <button class="btn btn-primary" routerLink="./cuestionario-turistas">Cargar/Modificar Encuesta</button>
         <button class="btn btn-primary" routerLink="./resultados">Ver resultados</button>
         <button class="btn btn-primary" routerLink="./encuestas">Ver encuestas cargadas</button>

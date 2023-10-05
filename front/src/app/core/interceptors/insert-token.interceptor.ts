@@ -7,21 +7,22 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
+
 
 @Injectable()
 export class InsertTokenInterceptor implements HttpInterceptor {
 
-  constructor(private login: LoginService) {}
+  constructor(private auth: AuthService) {}
 
   intercept(
     request: HttpRequest<unknown>, 
     next: HttpHandler
     ): Observable<HttpEvent<unknown>> {
-    if(!this.login.isLogged()) {
+    if(!this.auth.isLogged()) {
       return next.handle(request);
     }
-    const token = this.login.getToken();
+    const token = this.auth.getToken();
     const authRequest = request.clone({
       headers: request.headers.set('Authorization', `Bearer ${token}`)
     });
