@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/core/services/register.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { RegisterUser } from 'src/app/models/register-user';
 
 @Component({
@@ -9,7 +9,7 @@ import { RegisterUser } from 'src/app/models/register-user';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit{
+export class SigninComponent {
 
   isRegistered = false;
   isRegisterFail = false;
@@ -20,52 +20,53 @@ export class SigninComponent implements OnInit{
 
   tipoUsuario = "encuestador";
 
-  signinForm= this.formBuilder.group ({
+  registerForm= this.formBuilder.group ({
     name:['', Validators.required],
     lastName:['', Validators.required],
     email:['', [Validators.required, Validators.email]],
     password:['', Validators.required],
     confirmPassword:['', Validators.required],
   })
-  constructor (private formBuilder:FormBuilder, private router:Router, private register:RegisterService) {}
-
-  ngOnInit(): void {
+  constructor (private formBuilder:FormBuilder, private router:Router, private auth: AuthService) {
+    this.name.setValue('Juan');
+    this.lastName.setValue('Perez');
+    this.email.setValue('juan@mail.com');
+    this.password.setValue('juan1234');
+    this.confirmPassword.setValue('juan1234');
 
   }
 
   get name(){
-    return this.signinForm.controls.name;
+    return this.registerForm.controls.name;
   }
 
   get lastName(){
-    return this.signinForm.controls.lastName;
+    return this.registerForm.controls.lastName;
   }
 
   get email(){
-    return this.signinForm.controls.email;
+    return this.registerForm.controls.email;
   }
 
   get password(){
-    return this.signinForm.controls.password;
+    return this.registerForm.controls.password;
   }
 
   get confirmPassword(){
-    return this.signinForm.controls.confirmPassword;
+    return this.registerForm.controls.confirmPassword;
   }
 
   registrarUsuario(event: Event) {
     event.preventDefault;
     this.inSubmission = true;
-    if (this.signinForm.valid) {
+    if (this.registerForm.valid) {
       this.registerUser = new RegisterUser(this.name.value, this.lastName.value, this.email.value, this.password.value);
     }
-    this.register.register(this.registerUser).subscribe({
+    this.auth.register(this.registerUser).subscribe({
       next: (data: any) => {
         this.isRegistered = true;
         this.isRegisterFail = false;
-        this.register.setToken(data);
-        this.router.navigateByUrl('/home');
-        this.signinForm.reset();
+        this.registerForm.reset();
         this.inSubmission = false;
       },
       error: (error) => {

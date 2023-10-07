@@ -9,9 +9,13 @@ const TOKEN_KEY = 'currentUser';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
   constructor(private api: ApiService, private router: Router) { }
+
+  register(data: any) {
+    return this.api.post('user', data);
+  }
 
   login(data: LoginUser) {
     return this.api.post('login', data);

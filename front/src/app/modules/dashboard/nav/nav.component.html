@@ -7,14 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/inicio">Encuesta Turista</a>
           <a class="nav-link active" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/contacto">Obtener ayuda</a>
         </li>
         <li *ngIf="!userIsLogged" class="nav-item">
           <a class="nav-link" routerLink="/iniciar-sesion">iniciar Sesion</a>
         </li>
         <li *ngIf="userIsLogged" class="nav-item">
-          <button class="nav-link" (click)="login.logout($event)">Cerrar Sesion</button>
+          <button class="nav-link" (click)="auth.logout($event)">Cerrar Sesion</button>
         </li>
       </ul>
     </div>

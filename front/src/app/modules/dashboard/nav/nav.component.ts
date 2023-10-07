@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/core/services/login.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,11 +10,11 @@ export class NavComponent implements OnInit {
   userIsLogged=false;
   userEmail = '';
   userRole = '';
-  constructor(public login: LoginService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
-    this.userIsLogged = this.login.isLogged();
-    const userData = this.login.getUserTokenData();
+    this.userIsLogged = this.auth.isLogged();
+    const userData = this.auth.getUserTokenData();
     this.userEmail = userData.email;
     this.userRole = userData.role;
     
