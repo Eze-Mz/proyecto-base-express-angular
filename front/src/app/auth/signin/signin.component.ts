@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -9,7 +9,7 @@ import { RegisterUser } from 'src/app/models/register-user';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
 
   isRegistered = false;
   isRegisterFail = false;
@@ -34,6 +34,15 @@ export class SigninComponent {
     this.password.setValue('juan1234');
     this.confirmPassword.setValue('juan1234');
 
+  }
+
+  ngOnInit(): void {
+    this.registerForm.valueChanges.subscribe(() => {
+      this.isSubmitted = false;
+      this.isRegisterFail = false;
+      this.isRegistered = false;
+    });
+    
   }
 
   get name(){
@@ -64,18 +73,19 @@ export class SigninComponent {
     }
     this.auth.register(this.registerUser).subscribe({
       next: (data: any) => {
-        this.isRegistered = true;
         this.isRegisterFail = false;
         this.registerForm.reset();
+        this.isRegistered = true;
         this.inSubmission = false;
       },
       error: (error) => {
         this.isRegistered = false;
         this.isRegisterFail = true;
         this.isSubmitted = true;
-        this.errorMsj = error.error.message;
-        console.log(this.errorMsj);
-
+        
+        if(error.error.error.includes('email')){
+          this.errorMsj = 'El email ya esta registrado';
+        }
         this.inSubmission = false;
       },
     });

@@ -32,7 +32,7 @@
             </div>
             <button type="submit" [disabled]="registerForm.invalid || inSubmission" class="btn btn-primary mt-4">Registrar
                 usuario</button>
-            <p *ngIf="isRegistered && !isRegisterFail" class="text-success">Usuario registrador correctamente</p>
-            <p *ngIf="!isRegistered && isRegisterFail && isSubmitted" class="text-danger">{{errorMsj}}</p>
+            <div *ngIf="isRegistered && !isRegisterFail" class="alert alert-success mt-3" role="alert">Usuario registrador correctamente</div>
+            <div *ngIf="!isRegistered && isRegisterFail && isSubmitted" class="alert alert-danger mt-3" role="alert">{{errorMsj}}</div>
         </form>
 </div>
