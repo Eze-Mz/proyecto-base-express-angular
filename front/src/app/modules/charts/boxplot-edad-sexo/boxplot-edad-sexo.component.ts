@@ -48,10 +48,22 @@ export class BoxplotEdadSexoComponent implements OnInit{
       chart: {
         height: 300,
         width: 380,
-        type: "candlestick"
+        type: "candlestick",
+        toolbar: {
+          show: true,
+          tools: {
+            download: true,
+            selection: false,
+            zoom: false,
+            zoomin: false,
+            zoomout: false,
+            pan: false,
+            reset: false
+          },
+        }
       },
       title: {
-        text: "Boxplot edad según sexo",
+        text: "Edad según sexo",
         align: "left",
         style: {
           fontSize:  '20px',

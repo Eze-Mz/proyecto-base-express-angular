@@ -1,9 +1,10 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
+
 
 export const loginGuard: CanActivateFn = () => {
-  const login: LoginService = inject(LoginService);
+  const auth: AuthService = inject(AuthService);
   const router: Router = inject(Router);
-  return login.isLogged() || router.parseUrl('/inicio');
+  return auth.isLogged() || router.parseUrl('/inicio');
 };

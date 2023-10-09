@@ -1,0 +1,62 @@
+
+<h1 class="mx-4 mt-4">Listado de encuestas cargadas</h1>
+<div class="container-fluid my-4">
+    <div class="row">
+        <div class="table-responsive fs-custom">
+            <table class="table table-striped">
+                <colgroup>
+                    <col />
+                    <col class="col-min-100"/>
+                </colgroup>
+                <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Fecha creación</th>
+                      <th scope="col">Fecha actualización</th>
+                      <th scope="col">Id encuestador</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Edad</th>
+                      <th scope="col">Sexo</th>
+                      <th scope="col">Procedencia</th>
+                      <th scope="col">Procedencia_otros</th>
+                      <th scope="col">Acompañante_amigo</th>
+                      <th scope="col">Acompañante_excursión</th>
+                      <th scope="col">Acompañante_familia</th>
+                      <th scope="col">Acompañante_pareja</th>
+                      <th scope="col">Acompañante_solo</th>
+                      <th scope="col">Acompañante_otro</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let survey of this.currentSurveys">
+                      <th scope="row">{{survey.id}}</th>
+                      <td>{{survey.createdAt}}</td>
+                      <td>{{ survey.updatedAt ? survey.updatedAt: survey.createdAt}}</td>
+                      <td>{{survey.User.id}}</td>
+                      <td>{{survey.state}}</td>
+                      <td>{{survey.edad.edad}}</td>
+                      <td>{{survey.sexo.sexo}}</td>
+                      <td>{{survey.procedencia.procedencia}}</td>
+                      <td>{{survey.procedencia.proc_otro_text}}</td>
+                      <td>{{survey.acompaniante.acom_amigo}}</td>
+                      <td>{{survey.acompaniante.acom_excursion}}</td>
+                      <td>{{survey.acompaniante.acom_familia}}</td>
+                      <td>{{survey.acompaniante.acom_pareja}}</td>
+                      <td>{{survey.acompaniante.acom_solo}}</td>
+                      <td>{{survey.acompaniante.acom_otro_text}}</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li *ngFor="let page of [].constructor(this.pages); let i = index" class="page-item">
+                <button class="page-link" (click)="changePage(i)" (keydown.enter)="changePage(i)" tabindex="0">{{i + 1}}</button>
+              </li>
+            </ul>
+          </nav>
+    </div>
+</div>
+

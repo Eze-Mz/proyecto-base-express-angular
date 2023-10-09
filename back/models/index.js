@@ -5,15 +5,17 @@ const Edad = require('./answers/edad.js');
 const Survey = require('./survey.js');
 const Procedencia = require('./answers/procedencia.js');
 const Acompaniante = require('./answers/acompaniante.js');
+const { ANSWER_IDS } = require('../helpers/constants.js');
 
-// Realaciones respuesta-encuesta
+// Relaciones respuesta-encuesta
+/* Notar que si no se incluye la relación "hasOne" al hacer un findAll({include:{all:true}}) en Survey no trae la respuesta asociada */
+Survey.hasOne(Acompaniante, { as: ANSWER_IDS.ACOMPANIANTE, foreignKey: { name: 'SurveyId', allowNull: false } });
 Acompaniante.belongsTo(Survey);
-Survey.hasMany(Acompaniante);
+Survey.hasOne(Sexo, { as: ANSWER_IDS.SEXO, foreignKey: { name: 'SurveyId', allowNull: false } });
 Sexo.belongsTo(Survey);
-Survey.hasMany(Sexo);
+Survey.hasOne(Edad, { as: ANSWER_IDS.EDAD, foreignKey: { name: 'SurveyId', allowNull: false } });
 Edad.belongsTo(Survey);
-Survey.hasMany(Edad);
+Survey.hasOne(Procedencia, { as: ANSWER_IDS.PROCEDENCIA, foreignKey: { name: 'SurveyId', allowNull: false } });
 Procedencia.belongsTo(Survey);
-Survey.hasMany(Procedencia);
 
 module.exports = { User, Role, Sexo, Edad, Procedencia, Acompaniante, Survey };

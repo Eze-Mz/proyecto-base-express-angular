@@ -1,6 +1,35 @@
-footer {
-  background: rgb(49, 49, 110);
-}
+/*Para que el footer se mantenga al final
+aunque no haya suficiente contenido para llenar la página */
 :host {
   margin-top: auto;
+}
+
+/* Estilo para el footer */
+footer.jumbotron {
+  background-color: rgb(49, 49, 110);
+  padding: 20px 0;
+}
+
+/* Estilo para el texto del footer */
+footer.jumbotron p {
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Estilo para los iconos de redes sociales */
+footer.jumbotron a.text-white {
+  font-size: 24px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* Cambia el color de los íconos de redes sociales al pasar el ratón por encima */
+i:hover {
+  color: #007bff;
+}
+
+/* Estilos derechos de autor */
+.footer p:last-child {
+  font-size: 14px;
+  margin-top: 10px;
 }

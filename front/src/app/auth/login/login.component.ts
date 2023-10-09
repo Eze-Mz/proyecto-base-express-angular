@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/core/services/login.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginUser } from 'src/app/models/login-user';
 
 @Component({
@@ -24,13 +24,18 @@ export class LoginComponent implements OnInit{
     email:['admin@mail.com', [Validators.required, Validators.email]],
     password:['admin1234', Validators.required],
   })
-  constructor (private formBuilder:FormBuilder, private router:Router, private login:LoginService) {}
+  constructor (private formBuilder:FormBuilder, private router:Router, private auth: AuthService) {}
 
   ngOnInit(): void {
-    if (this.login.getToken()) {
+    if (this.auth.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
     }
+
+    this.loginForm.valueChanges.subscribe(() => {
+      this.isSubmitted = false;
+      this.isLoginFail = false;
+    });
   }
 
   get email(){
@@ -41,17 +46,18 @@ export class LoginComponent implements OnInit{
     return this.loginForm.controls.password;
   }
 
+
   iniciarSesion(event: Event) {
     event.preventDefault;
     this.inSubmission = true;
     if (this.loginForm.valid) {
       this.loginUser = new LoginUser(this.email.value, this.password.value);
     }
-    this.login.login(this.loginUser).subscribe({
+    this.auth.login(this.loginUser).subscribe({
       next: (data: any) => {
         this.isLogged = true;
         this.isLoginFail = false;
-        this.login.setToken(data);
+        this.auth.setToken(data);
         this.router.navigateByUrl('/dashboard');
         this.loginForm.reset();
         this.inSubmission = false;

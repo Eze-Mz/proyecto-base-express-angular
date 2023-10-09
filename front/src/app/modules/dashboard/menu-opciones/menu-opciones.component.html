@@ -1,17 +1,16 @@
-<app-nav></app-nav>
-<main class="pb-5" *ngIf="userIsLogged">
+<div>
     <div class="d-flex flex-column gap-4 pt-4 container max-width-buttons">
         <div *ngIf="userIsAdmin; then adminOptions else userOptions"></div>
     </div>
     <ng-template #adminOptions>
-        <button class="btn btn-primary">Registrar Encuestador</button>
-        <button class="btn btn-primary">Cargar/Modificar Encuesta</button>
+        <button class="btn btn-primary" routerLink="./registro">Registrar Encuestador</button>
+        <button class="btn btn-primary" routerLink="./cuestionario-turistas">Cargar/Modificar Encuesta</button>
         <button class="btn btn-primary" routerLink="./resultados">Ver resultados</button>
         <button class="btn btn-primary" routerLink="./encuestas">Ver encuestas cargadas</button>
     </ng-template>
     <ng-template #userOptions>
-        <button class="btn btn-primary">Cargar encuesta</button>
+        <button class="btn btn-primary" routerLink="./cuestionario-turistas">Cargar encuesta</button>
         <button class="btn btn-primary" routerLink="./encuestas">Ver encuestas cargadas</button>
     </ng-template>
 
-</main>
+</div>
