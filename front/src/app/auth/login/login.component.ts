@@ -31,6 +31,11 @@ export class LoginComponent implements OnInit{
       this.isLogged = true;
       this.isLoginFail = false;
     }
+
+    this.loginForm.valueChanges.subscribe(() => {
+      this.isSubmitted = false;
+      this.isLoginFail = false;
+    });
   }
 
   get email(){
@@ -40,6 +45,7 @@ export class LoginComponent implements OnInit{
   get password(){
     return this.loginForm.controls.password;
   }
+
 
   iniciarSesion(event: Event) {
     event.preventDefault;

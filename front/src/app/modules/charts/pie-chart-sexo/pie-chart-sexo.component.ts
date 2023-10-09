@@ -33,7 +33,19 @@ export class PieChartSexoComponent implements OnInit {
       chart: {
         height: 300,
         width: 380,
-        type: "pie"
+        type: "pie",
+        toolbar: {
+          show: true,
+          tools: {
+            download: true,
+            selection: false,
+            zoom: false,
+            zoomin: false,
+            zoomout: false,
+            pan: false,
+            reset: false
+          },
+        },
       },
       title: {
         text: "Sexo de los turistas",

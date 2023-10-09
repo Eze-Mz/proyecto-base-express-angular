@@ -2,7 +2,7 @@
 <h1 class="mx-4 mt-4">Listado de encuestas cargadas</h1>
 <div class="container-fluid my-4">
     <div class="row">
-        <div class="table-responsive">
+        <div class="table-responsive fs-custom">
             <table class="table table-striped">
                 <colgroup>
                     <col />
@@ -28,7 +28,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let survey of this.surveys">
+                    <tr *ngFor="let survey of this.currentSurveys">
                       <th scope="row">{{survey.id}}</th>
                       <td>{{survey.createdAt}}</td>
                       <td>{{ survey.updatedAt ? survey.updatedAt: survey.createdAt}}</td>
@@ -52,11 +52,9 @@
     <div class="row">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              <li *ngFor="let page of [].constructor(this.pages); let i = index" class="page-item">
+                <button class="page-link" (click)="changePage(i)" (keydown.enter)="changePage(i)" tabindex="0">{{i + 1}}</button>
+              </li>
             </ul>
           </nav>
     </div>

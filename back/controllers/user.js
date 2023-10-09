@@ -10,7 +10,8 @@ const createUser = async (req, res) => {
   } catch (error) {
     // extraer el mensaje de error de sequelize
     const message = error.errors[0].message;
-    res.status(500).json({ action: 'createUser', error: message });
+    console.log(message);
+    res.status(400).json({ action: 'createUser', error: message });
   }
 };
 
