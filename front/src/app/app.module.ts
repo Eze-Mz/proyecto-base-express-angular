@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { ContactFormComponent } from './shared/contact-form/contact-form.component';
 
 
 
@@ -25,6 +26,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     HomeComponent,
     NotFoundComponent,
     SigninComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
