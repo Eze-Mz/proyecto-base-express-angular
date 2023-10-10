@@ -27,7 +27,7 @@
                       <th scope="col">Acompañante_otro</th>
                     </tr>
                   </thead>
-                  <tbody *ngIf="this.surveys.length > 45">
+                  <tbody>
                     <tr *ngFor="let survey of this.currentSurveys">
                       <th scope="row">{{survey.id}}</th>
                       <td>{{survey.createdAt}}</td>
