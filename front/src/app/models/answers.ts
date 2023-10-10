@@ -61,3 +61,5 @@ export interface ISurveyAnswers {
   acompaniante: IAcompaniamiento,
   User: any
 }
+
+

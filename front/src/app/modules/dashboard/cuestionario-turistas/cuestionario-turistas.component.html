@@ -25,7 +25,7 @@
       <label>Procedencia:</label>
       <select class="form-control" [(ngModel)]="procedencia" name="procedencia" required>
         <option value="Córdoba Capital">Córdoba Capital</option>
-        <option value="Otra ciudad o localidad de Córdoba">Otra ciudad o localidad de Córdoba</option>
+        <option value="Otra localidad">Otra localidad</option>
         <option value="Otra provincia">Otra provincia</option>
         <option value="Otro país">Otro país</option>
       </select>
@@ -36,10 +36,10 @@
     <div class="form-group">
       <label>¿Ud. vino a Mina Clavero?</label>
       <div class="form-check" *ngFor="let opcion of opcionesVino">
-        <input class="form-check-input" type="radio" [id]="opcion" [(ngModel)]="vinoAMinaClavero" name="vinoAMinaClavero" [value]="opcion">
+        <input class="form-check-input" type="checkbox" [id]="opcion" [(ngModel)]="vinoAMinaClavero[opcion]" name="vinoAMinaClavero" [value]="opcion">
         <label class="form-check-label" [for]="opcion">{{ opcion }}</label>
       </div>
-      <input *ngIf="vinoAMinaClavero === 'Otros'" type="text" class="form-control mt-2" [(ngModel)]="otrosVino" name="otrosVino" placeholder="¿Cuáles?">
+      <input *ngIf="vinoAMinaClavero['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otrosVino" name="otrosVino" placeholder="¿Cuáles?">
     </div>
 
     <div class="form-group">

@@ -27,7 +27,7 @@
                       <th scope="col">Acompañante_otro</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody *ngIf="this.surveys.length > 45">
                     <tr *ngFor="let survey of this.currentSurveys">
                       <th scope="row">{{survey.id}}</th>
                       <td>{{survey.createdAt}}</td>
@@ -37,7 +37,7 @@
                       <td>{{survey.edad.edad}}</td>
                       <td>{{survey.sexo.sexo}}</td>
                       <td>{{survey.procedencia.procedencia}}</td>
-                      <td>{{survey.procedencia.proc_otro_text}}</td>
+                      <td>{{survey.procedencia.proc_otro_text }}</td>
                       <td>{{survey.acompaniante.acom_amigo}}</td>
                       <td>{{survey.acompaniante.acom_excursion}}</td>
                       <td>{{survey.acompaniante.acom_familia}}</td>
