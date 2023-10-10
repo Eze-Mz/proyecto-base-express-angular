@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuOpcionesComponent } from './menu-opciones/menu-opciones.component';
 import { SigninComponent } from 'src/app/auth/signin/signin.component';
 import { ContactFormComponent } from 'src/app/shared/contact-form/contact-form.component';
+import { tableDataResolver } from 'src/app/core/services/table-data.resolver';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
     children: [
       { path: '', component: MenuOpcionesComponent, canActivate: [loginGuard]},
       { path: 'resultados', component: ResultadosComponent, canActivate: [adminGuard] },
-      { path: 'encuestas', component: TablaEncuestasComponent, canActivate: [loginGuard] },
+      { path: 'encuestas', component: TablaEncuestasComponent, canActivate: [loginGuard], resolve: { tableData: tableDataResolver } },
       { path: 'cuestionario-turistas', component: CuestionarioTuristasComponent, canActivate: [loginGuard] },
       { path: 'registro', component: SigninComponent, canActivate: [loginGuard] },
       { path: 'contacto', component: ContactFormComponent, canActivate: [loginGuard]}

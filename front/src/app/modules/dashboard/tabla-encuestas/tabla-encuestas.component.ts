@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from 'src/app/core/services/database.service';
 import { ISurveyAnswers } from 'src/app/models/answers';
 
@@ -14,15 +15,13 @@ export class TablaEncuestasComponent implements OnInit {
   currentStart = 0;
   currentSurveys: ISurveyAnswers[] = [];
 
-  constructor(private db: DatabaseService) {}
+  constructor(private db: DatabaseService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.db.getAllSurveys().subscribe((data) => {
-      this.surveys = data;
+    this.route.data.subscribe((data) => {
+      this.surveys = data['tableData'];
       this.currentSurveys = this.surveys.slice(0, this.pageSize);
       this.pages = Math.ceil(this.surveys.length / this.pageSize);
-      console.log(this.surveys);
-      
     });
   }
 
