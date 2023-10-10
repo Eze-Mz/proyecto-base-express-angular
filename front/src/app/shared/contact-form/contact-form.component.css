@@ -1,0 +1,6 @@
+/* Estilos para el nuevo párrafo de derechos de autor */
+.footer p:last-child {
+  font-size: 14px; /* Tamaño de fuente del párrafo */
+  margin-top: 10px; /* Espaciado superior del párrafo */
+  text-align: center; /* Alinea el texto al centro */
+}

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DatabaseService } from 'src/app/core/services/database.service';
+import { Acompaniante, Procedencia, Survey } from 'src/app/models/survey';
 
 @Component({
   selector: 'app-cuestionario-turistas',
@@ -11,7 +13,7 @@ export class CuestionarioTuristasComponent {
   procedencia!: string;
   otraCiudad!: string;
   otroPais!: string;
-  vinoAMinaClavero!: string;
+  vinoAMinaClavero: { [key: string]: boolean } = {};
   otrosVino!: string;
   mediosConocidos: { [key: string]: boolean } = {};
   otrosMedios!: string;
@@ -53,9 +55,26 @@ export class CuestionarioTuristasComponent {
   informacionSolicitada: string[] = ['Hospedaje', 'Paseos', 'Eventos', 'Gastronomía', 'Turismo Aventura', 'Servicios', 'Rutas', 'Otros'];
   mediosSolicitud: string[] = ['Personalmente', 'Vía mail', 'Vía Facebook', 'Vía Telefónica', 'Otros'];
 
+  constructor(private db: DatabaseService) { }
+
   onSubmit() {
     // Aquí puedes enviar los datos del formulario a través de una solicitud HTTP o realizar cualquier acción necesaria.
     // Por ejemplo, puedes imprimir los datos en la consola para verificar que se capturaron correctamente.
+    const newProcedencia = new Procedencia(this.procedencia, this.otraCiudad);
+    const newAcompaniante = new Acompaniante(this.vinoAMinaClavero['Solo'], this.vinoAMinaClavero['Con su pareja'], this.vinoAMinaClavero['Con su familia'], this.vinoAMinaClavero['Con amigos'], this.vinoAMinaClavero['En una excursión'], this.vinoAMinaClavero['Otros'], this.otrosVino);
+    
+    const newSurvey = new Survey(this.edad, this.sexo, newProcedencia, newAcompaniante);
+    console.log(newSurvey);
+    this.db.createSurvey(newSurvey).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    
+
     console.log('Datos del formulario:', {
       edad: this.edad,
       sexo: this.sexo,
