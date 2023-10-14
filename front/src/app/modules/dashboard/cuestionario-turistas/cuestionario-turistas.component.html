@@ -23,14 +23,13 @@
 
     <div class="form-group">
       <label>Procedencia:</label>
-      <select class="form-control" [(ngModel)]="procedencia" name="procedencia" required>
+      <select class="form-select" [(ngModel)]="procedencia" name="procedencia" required>
         <option value="Córdoba Capital">Córdoba Capital</option>
         <option value="Otra localidad">Otra localidad</option>
         <option value="Otra provincia">Otra provincia</option>
         <option value="Otro país">Otro país</option>
       </select>
-      <input *ngIf="procedencia === 'Otra ciudad o localidad de Córdoba'" type="text" class="form-control mt-2" [(ngModel)]="otraCiudad" name="otraCiudad" placeholder="¿Cuál?">
-      <input *ngIf="procedencia === 'Otro país'" type="text" class="form-control mt-2" [(ngModel)]="otroPais" name="otroPais" placeholder="¿Cuál?">
+      <input *ngIf="procedencia === 'Otra localidad' || procedencia === 'Otra provincia' || procedencia === 'Otro país'" type="text" class="form-control mt-2" [(ngModel)]="otraProcedencia" name="otraCiudad" placeholder="¿Cuál?">
     </div>
 
     <div class="form-group">
@@ -71,7 +70,7 @@
 
     <div class="form-group">
       <label>¿Cómo es el servicio en el hospedaje que ha contratado?</label>
-      <select class="form-control" [(ngModel)]="servicioHospedaje" name="servicioHospedaje">
+      <select class="form-select" [(ngModel)]="servicioHospedaje" name="servicioHospedaje">
         <option value="Excelente">Excelente</option>
         <option value="Muy Buena">Muy Buena</option>
         <option value="Buena">Buena</option>
@@ -136,7 +135,7 @@
 
     <div class="form-group">
       <label>¿Cómo evalúa el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</label>
-      <select class="form-control" [(ngModel)]="evaluacionInformacion" name="evaluacionInformacion">
+      <select class="form-select" [(ngModel)]="evaluacionInformacion" name="evaluacionInformacion">
         <option value="Excelente">Excelente</option>
         <option value="Muy Buena">Muy Buena</option>
         <option value="Buena">Buena</option>
@@ -186,6 +185,8 @@
       <input *ngIf="recomendaria === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoRecomendaria" name="razonNoRecomendaria" placeholder="¿Por qué?">
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" [disabled]="" class="btn btn-primary">Enviar</button>
   </form>
+  <div *ngIf="success" class="alert alert-success mt-3" role="alert">Encuesta cargada!</div>
+  <div *ngIf="!success && isSubmitted" class="alert alert-danger mt-3" role="alert">{{errorMsj}}</div>
 </div>

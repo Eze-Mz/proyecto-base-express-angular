@@ -19,7 +19,7 @@ const routes: Routes = [
     children: [
       { path: '', component: MenuOpcionesComponent, canActivate: [loginGuard]},
       { path: 'resultados', component: ResultadosComponent, canActivate: [adminGuard] },
-      { path: 'encuestas', component: TablaEncuestasComponent, canActivate: [loginGuard], resolve: { tableData: tableDataResolver } },
+      { path: 'encuestas', component: TablaEncuestasComponent, canActivate: [loginGuard] },
       { path: 'cuestionario-turistas', component: CuestionarioTuristasComponent, canActivate: [loginGuard] },
       { path: 'registro', component: SigninComponent, canActivate: [loginGuard] },
       { path: 'contacto', component: ContactFormComponent, canActivate: [loginGuard]}

@@ -1,8 +1,8 @@
 const { Survey } = require('../models');
 
-const createSurvey = async (survey) => {
+const createSurvey = async (survey, t) => {
   try {
-    const newSurvey = await Survey.create(survey);
+    const newSurvey = await Survey.create(survey, { transaction: t });
     return newSurvey;
   } catch (error) {
     console.error('Error al crear la encuesta', error);

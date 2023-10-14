@@ -8,11 +8,15 @@ import { Acompaniante, Procedencia, Survey } from 'src/app/models/survey';
   styleUrls: ['./cuestionario-turistas.component.css']
 })
 export class CuestionarioTuristasComponent {
+  inSubmission = false;
+  success = false;
+  isSubmitted = false;
+  errorMsj!: string;
+
   edad!: number;
   sexo!: string;
   procedencia!: string;
-  otraCiudad!: string;
-  otroPais!: string;
+  otraProcedencia!: string;
   vinoAMinaClavero: { [key: string]: boolean } = {};
   otrosVino!: string;
   mediosConocidos: { [key: string]: boolean } = {};
@@ -60,27 +64,32 @@ export class CuestionarioTuristasComponent {
   onSubmit() {
     // Aquí puedes enviar los datos del formulario a través de una solicitud HTTP o realizar cualquier acción necesaria.
     // Por ejemplo, puedes imprimir los datos en la consola para verificar que se capturaron correctamente.
-    const newProcedencia = new Procedencia(this.procedencia, this.otraCiudad);
+    this.inSubmission = true;
+    const newProcedencia = new Procedencia(this.procedencia, this.otraProcedencia);
     const newAcompaniante = new Acompaniante(this.vinoAMinaClavero['Solo'], this.vinoAMinaClavero['Con su pareja'], this.vinoAMinaClavero['Con su familia'], this.vinoAMinaClavero['Con amigos'], this.vinoAMinaClavero['En una excursión'], this.vinoAMinaClavero['Otros'], this.otrosVino);
     
     const newSurvey = new Survey(this.edad, this.sexo, newProcedencia, newAcompaniante);
     console.log(newSurvey);
-    this.db.createSurvey(newSurvey).subscribe(
-      (res) => {
-        console.log(res);
+    this.db.createSurvey(newSurvey).subscribe({
+      next: (data: any) => {
+        this.success = true;
+        this.isSubmitted = true;
+        this.inSubmission = false;
+
       },
-      (err) => {
-        console.log(err);
+      error: (error) => {
+        this.success = false;
+        this.isSubmitted = true;
+        this.inSubmission = false;
+        this.errorMsj = "Error al cargar la encuesta"
       }
-    );
+    });
     
 
     console.log('Datos del formulario:', {
       edad: this.edad,
       sexo: this.sexo,
       procedencia: this.procedencia,
-      otraCiudad: this.otraCiudad,
-      otroPais: this.otroPais,
       vinoAMinaClavero: this.vinoAMinaClavero,
       otrosVino: this.otrosVino,
       mediosConocidos: this.mediosConocidos,

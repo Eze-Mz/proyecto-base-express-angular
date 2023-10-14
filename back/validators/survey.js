@@ -1,5 +1,4 @@
 const { checkSchema } = require('express-validator');
-
 // create checkSchema to validate the exampleObject using express-validator
 const surveySchema = checkSchema({
   edad: {
@@ -74,7 +73,7 @@ const surveySchema = checkSchema({
     optional: true,
     custom: {
       options: (value) => {
-        if (!value.acom_solo && !value.acom_pareja && !value.acom_familia && !value.acom_amigo && !value.acom_excusion && !value.acom_otro) {
+        if (!value.acom_solo && !value.acom_pareja && !value.acom_familia && !value.acom_amigo && !value.acom_excursion && !value.acom_otro) {
           throw new Error('la propiedad acompaniante.opciones debe tener al menos un valor true');
         }
         return true;

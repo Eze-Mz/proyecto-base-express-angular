@@ -1,6 +1,6 @@
 const { procedenciaProvider } = require('../providers');
 
-const createProcedencia = async (procedencia, surveyId) => {
+const createProcedencia = async (procedencia, surveyId, t) => {
   const newProcedencia = {
     procedencia: procedencia.opcion,
     SurveyId: surveyId
@@ -9,7 +9,7 @@ const createProcedencia = async (procedencia, surveyId) => {
     newProcedencia.proc_otro_text = procedencia.texto_otros;
   }
 
-  return await procedenciaProvider.createAnswer(newProcedencia);
+  return await procedenciaProvider.createAnswer(newProcedencia, t);
 };
 
 module.exports = {

@@ -15,19 +15,19 @@ const createSurvey = async (data) => {
   }
 
   const result = await sequelize.transaction(async (t) => {
-    const newSurvey = await surveyProvider.createSurvey(surveyData);
+    const newSurvey = await surveyProvider.createSurvey(surveyData, t);
     const surveyId = newSurvey.id;
     if (data.edad) {
-      await createEdad(data.edad, surveyId);
+      await createEdad(data.edad, surveyId, t);
     }
     if (data.sexo) {
-      await createSexo(data.sexo, surveyId);
+      await createSexo(data.sexo, surveyId, t);
     }
     if (data.procedencia) {
-      await createProcedencia(data.procedencia, surveyId);
+      await createProcedencia(data.procedencia, surveyId, t);
     }
     if (data.acompaniante) {
-      await createAcompaniante(data.acompaniante, surveyId);
+      await createAcompaniante(data.acompaniante, surveyId, t);
     }
     return newSurvey;
   });

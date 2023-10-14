@@ -6,6 +6,7 @@ const createSurvey = async (req, res) => {
     const survey = req.body;
     const tokenData = req.tokenData;
     survey.userId = tokenData.id;
+    console.log('LLEGA HASTA ACAAAAAAAAAAAAAAAAAAAAAAAA');
     // crear encuesta
     const createdSurvey = await surveyService.createSurvey(survey);
     res.status(201).json(createdSurvey);
