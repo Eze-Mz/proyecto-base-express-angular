@@ -1,6 +1,6 @@
 const { acompanianteProvider } = require('../providers');
 
-const createAcompaniante = async (acompaniante, surveyId) => {
+const createAcompaniante = async (acompaniante, surveyId, t) => {
   const newAcompaniante = {
     ...acompaniante.opciones,
     SurveyId: surveyId
@@ -9,7 +9,7 @@ const createAcompaniante = async (acompaniante, surveyId) => {
     newAcompaniante.acom_otro_text = acompaniante.texto_otros;
   }
 
-  return await acompanianteProvider.createAnswer(newAcompaniante);
+  return await acompanianteProvider.createAnswer(newAcompaniante, t);
 };
 
 module.exports = {
