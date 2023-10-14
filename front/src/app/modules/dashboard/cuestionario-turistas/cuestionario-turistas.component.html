@@ -1,77 +1,92 @@
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
 <div class="container">
   <h2>CUESTIONARIO TURISTAS</h2>
-  <p>Sr./a Turista: La siguiente encuesta es parte del relevamiento que estamos desarrollando desde la Secretaria de Turismo de la Municipalidad de Mina Clavero, que tiene por finalidad conocer cuáles sus preferencias, medios por los ha conocido nuestro destino y nivel de satisfacción; Esta información será de suma importancia para desarrollar planes estratégicos que permitirán hacer de nuestra localidad el mejor lugar para sus vacaciones. Cabe aclarar que los datos son confidenciales y anónimos.</p>
+  <p>Sr./a Turista: La siguiente encuesta es parte del relevamiento que estamos desarrollando desde la Secretaria de
+    Turismo de la Municipalidad de Mina Clavero, que tiene por finalidad conocer cuáles sus preferencias, medios por los
+    ha conocido nuestro destino y nivel de satisfacción; Esta información será de suma importancia para desarrollar
+    planes estratégicos que permitirán hacer de nuestra localidad el mejor lugar para sus vacaciones. Cabe aclarar que
+    los datos son confidenciales y anónimos.</p>
 
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
     <div class="form-group">
-      <label for="edad">Edad:</label>
+      <label for="edad">Edad (requerido):</label>
       <input type="number" class="form-control" id="edad" [(ngModel)]="edad" name="edad" required>
     </div>
 
+
     <div class="form-group">
-      <label>Sexo:</label>
+      <label>Género (requerido):</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="masculino" [(ngModel)]="sexo" name="sexo" value="Masculino" required>
+        <input class="form-check-input" type="radio" id="masculino" [(ngModel)]="sexo" name="sexo" value="Masculino"
+          required>
         <label class="form-check-label" for="masculino">Masculino</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="femenino" [(ngModel)]="sexo" name="sexo" value="Femenino" required>
+        <input class="form-check-input" type="radio" id="femenino" [(ngModel)]="sexo" name="sexo" value="Femenino"
+          required>
         <label class="form-check-label" for="femenino">Femenino</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label>Procedencia:</label>
-      <select class="form-control" [(ngModel)]="procedencia" name="procedencia" required>
+      <label>Procedencia (requerido):</label>
+      <select class="form-select" [(ngModel)]="procedencia" name="procedencia" required>
         <option value="Córdoba Capital">Córdoba Capital</option>
         <option value="Otra localidad">Otra localidad</option>
         <option value="Otra provincia">Otra provincia</option>
         <option value="Otro país">Otro país</option>
       </select>
-      <input *ngIf="procedencia === 'Otra ciudad o localidad de Córdoba'" type="text" class="form-control mt-2" [(ngModel)]="otraCiudad" name="otraCiudad" placeholder="¿Cuál?">
-      <input *ngIf="procedencia === 'Otro país'" type="text" class="form-control mt-2" [(ngModel)]="otroPais" name="otroPais" placeholder="¿Cuál?">
+      <input *ngIf="procedencia === 'Otra localidad' || procedencia === 'Otra provincia' || procedencia === 'Otro país'"
+        type="text" class="form-control mt-2" [(ngModel)]="otraProcedencia" name="otraCiudad" placeholder="¿Cuál?">
     </div>
 
     <div class="form-group">
       <label>¿Ud. vino a Mina Clavero?</label>
       <div class="form-check" *ngFor="let opcion of opcionesVino">
-        <input class="form-check-input" type="checkbox" [id]="opcion" [(ngModel)]="vinoAMinaClavero[opcion]" name="vinoAMinaClavero" [value]="opcion">
+        <input class="form-check-input" type="checkbox" [id]="opcion" [(ngModel)]="vinoAMinaClavero[opcion]"
+          name="vinoAMinaClavero" [value]="opcion">
         <label class="form-check-label" [for]="opcion">{{ opcion }}</label>
       </div>
-      <input *ngIf="vinoAMinaClavero['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otrosVino" name="otrosVino" placeholder="¿Cuáles?">
+      <input *ngIf="vinoAMinaClavero['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otrosVino"
+        name="otrosVino" placeholder="¿Cuáles?">
     </div>
 
     <div class="form-group">
       <label>¿A través de qué medio conoció el destino Mina Clavero?</label>
       <div class="form-check" *ngFor="let medio of mediosConocimiento">
-        <input class="form-check-input" type="checkbox" [id]="medio" [(ngModel)]="mediosConocidos[medio]" name="mediosConocidos" [value]="medio">
+        <input class="form-check-input" type="checkbox" [id]="medio" [(ngModel)]="mediosConocidos[medio]"
+          name="mediosConocidos" [value]="medio">
         <label class="form-check-label" [for]="medio">{{ medio }}</label>
       </div>
-      <input *ngIf="mediosConocidos['Otro']" type="text" class="form-control mt-2" [(ngModel)]="otrosMedios" name="otrosMedios" placeholder="Otro ¿Cuál?">
+      <input *ngIf="mediosConocidos['Otro']" type="text" class="form-control mt-2" [(ngModel)]="otrosMedios"
+        name="otrosMedios" placeholder="Otro ¿Cuál?">
     </div>
 
     <div class="form-group">
       <label>¿Por qué eligió Mina Clavero para pasar sus vacaciones?</label>
       <div class="form-check" *ngFor="let razon of razonesEleccion">
-        <input class="form-check-input" type="checkbox" [id]="razon" [(ngModel)]="razones[razon]" name="razonesEleccion" [value]="razon">
+        <input class="form-check-input" type="checkbox" [id]="razon" [(ngModel)]="razones[razon]" name="razonesEleccion"
+          [value]="razon">
         <label class="form-check-label" [for]="razon">{{ razon }}</label>
       </div>
-      <input *ngIf="razones['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otrasRazones" name="otrasRazones" placeholder="Otros ¿Cuáles?">
+      <input *ngIf="razones['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otrasRazones"
+        name="otrasRazones" placeholder="Otros ¿Cuáles?">
     </div>
 
     <div class="form-group">
       <label>En cuanto a Hospedaje:</label>
       <div class="form-check" *ngFor="let hospedaje of tipoHospedaje">
-        <input class="form-check-input" type="radio" [id]="hospedaje" [(ngModel)]="tipoDeHospedaje" name="tipoDeHospedaje" [value]="hospedaje">
+        <input class="form-check-input" type="radio" [id]="hospedaje" [(ngModel)]="tipoDeHospedaje"
+          name="tipoDeHospedaje" [value]="hospedaje">
         <label class="form-check-label" [for]="hospedaje">{{ hospedaje }}</label>
       </div>
-      <input *ngIf="tipoDeHospedaje === 'Otro'" type="text" class="form-control mt-2" [(ngModel)]="otroTipoHospedaje" name="otroTipoHospedaje" placeholder="Otro ¿Cuál?">
+      <input *ngIf="tipoDeHospedaje === 'Otro'" type="text" class="form-control mt-2" [(ngModel)]="otroTipoHospedaje"
+        name="otroTipoHospedaje" placeholder="Otro ¿Cuál?">
     </div>
 
     <div class="form-group">
       <label>¿Cómo es el servicio en el hospedaje que ha contratado?</label>
-      <select class="form-control" [(ngModel)]="servicioHospedaje" name="servicioHospedaje">
+      <select class="form-select" [(ngModel)]="servicioHospedaje" name="servicioHospedaje">
         <option value="Excelente">Excelente</option>
         <option value="Muy Buena">Muy Buena</option>
         <option value="Buena">Buena</option>
@@ -85,58 +100,68 @@
     <div class="form-group">
       <label>¿Recibió material informativo de la Secretaría de Turismo en el hospedaje donde se alojó?</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="siRecibioMaterial" [(ngModel)]="recibioMaterial" name="recibioMaterial" value="Si">
+        <input class="form-check-input" type="radio" id="siRecibioMaterial" [(ngModel)]="recibioMaterial"
+          name="recibioMaterial" value="Si">
         <label class="form-check-label" for="siRecibioMaterial">Si</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="noRecibioMaterial" [(ngModel)]="recibioMaterial" name="recibioMaterial" value="No">
+        <input class="form-check-input" type="radio" id="noRecibioMaterial" [(ngModel)]="recibioMaterial"
+          name="recibioMaterial" value="No">
         <label class="form-check-label" for="noRecibioMaterial">No</label>
       </div>
-      <input *ngIf="recibioMaterial === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoRecibirMaterial" name="razonNoRecibirMaterial" placeholder="¿Cuál?">
+      <input *ngIf="recibioMaterial === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoRecibirMaterial"
+        name="razonNoRecibirMaterial" placeholder="¿Cuál?">
     </div>
 
     <div class="form-group">
       <label>¿Ud. pidió información en las Oficinas de Turismo de Mina Clavero?</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="siPidioInformacion" [(ngModel)]="pidioInformacion" name="pidioInformacion" value="Si">
+        <input class="form-check-input" type="radio" id="siPidioInformacion" [(ngModel)]="pidioInformacion"
+          name="pidioInformacion" value="Si">
         <label class="form-check-label" for="siPidioInformacion">Si</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="noPidioInformacion" [(ngModel)]="pidioInformacion" name="pidioInformacion" value="No">
+        <input class="form-check-input" type="radio" id="noPidioInformacion" [(ngModel)]="pidioInformacion"
+          name="pidioInformacion" value="No">
         <label class="form-check-label" for="noPidioInformacion">No</label>
       </div>
-      <input *ngIf="pidioInformacion === 'Si'" type="text" class="form-control mt-2" [(ngModel)]="oficinaTurismo" name="oficinaTurismo" placeholder="¿En qué oficina?">
+      <input *ngIf="pidioInformacion === 'Si'" type="text" class="form-control mt-2" [(ngModel)]="oficinaTurismo"
+        name="oficinaTurismo" placeholder="¿En qué oficina?">
     </div>
 
     <div class="form-group">
       <label>¿Qué tipo de Información solicitó en las Oficinas de Turismo de Mina Clavero?</label>
       <div class="form-check" *ngFor="let tipo of informacionSolicitada">
-        <input class="form-check-input" type="checkbox" [id]="tipo" [(ngModel)]="informacion[tipo]" name="informacionSolicitada" [value]="tipo">
+        <input class="form-check-input" type="checkbox" [id]="tipo" [(ngModel)]="informacion[tipo]"
+          name="informacionSolicitada" [value]="tipo">
         <label class="form-check-label" [for]="tipo">{{ tipo }}</label>
       </div>
-      <input *ngIf="informacion['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otraInformacion" name="otraInformacion" placeholder="Otros ¿Cuáles?">
+      <input *ngIf="informacion['Otros']" type="text" class="form-control mt-2" [(ngModel)]="otraInformacion"
+        name="otraInformacion" placeholder="Otros ¿Cuáles?">
     </div>
 
     <div class="form-group">
       <label>¿A través de qué medio solicitó información en las Oficinas de Turismo de Mina Clavero?</label>
       <div class="form-check" *ngFor="let medio of mediosSolicitud">
-        <input class="form-check-input" type="checkbox" [id]="medio" [(ngModel)]="mediosSolicitados[medio]" name="mediosSolicitados" [value]="medio">
+        <input class="form-check-input" type="checkbox" [id]="medio" [(ngModel)]="mediosSolicitados[medio]"
+          name="mediosSolicitados" [value]="medio">
         <label class="form-check-label" [for]="medio">{{ medio }}</label>
       </div>
-      <input *ngIf="mediosSolicitados['Otro']" type="text" class="form-control mt-2" [(ngModel)]="otrosMediosSolicitud" name="otrosMediosSolicitud" placeholder="Otro ¿Cuál?">
+      <input *ngIf="mediosSolicitados['Otro']" type="text" class="form-control mt-2" [(ngModel)]="otrosMediosSolicitud"
+        name="otrosMediosSolicitud" placeholder="Otro ¿Cuál?">
     </div>
 
     <div class="form-group">
       <label>¿Qué tipo de material se le entregó en la Oficina de Turismo?</label>
       <div class="form-check" *ngFor="let material of tipoMaterialEntregado">
-        <input class="form-check-input" type="checkbox" [id]="material"  name="materialEntregado" [value]="material">
+        <input class="form-check-input" type="checkbox" [id]="material" name="materialEntregado" [value]="material">
         <label class="form-check-label" [for]="material">{{ material }}</label>
       </div>
     </div>
 
     <div class="form-group">
       <label>¿Cómo evalúa el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</label>
-      <select class="form-control" [(ngModel)]="evaluacionInformacion" name="evaluacionInformacion">
+      <select class="form-select" [(ngModel)]="evaluacionInformacion" name="evaluacionInformacion">
         <option value="Excelente">Excelente</option>
         <option value="Muy Buena">Muy Buena</option>
         <option value="Buena">Buena</option>
@@ -150,42 +175,53 @@
     <div class="form-group">
       <label>¿Aparte de la información solicitada, se le brindó algún otro tipo de información de su interés?</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="siOtraInformacion" [(ngModel)]="otraInformacionBrindada" name="otraInformacionBrindada" value="Si">
+        <input class="form-check-input" type="radio" id="siOtraInformacion" [(ngModel)]="otraInformacionBrindada"
+          name="otraInformacionBrindada" value="Si">
         <label class="form-check-label" for="siOtraInformacion">Si</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="noOtraInformacion" [(ngModel)]="otraInformacionBrindada" name="otraInformacionBrindada" value="No">
+        <input class="form-check-input" type="radio" id="noOtraInformacion" [(ngModel)]="otraInformacionBrindada"
+          name="otraInformacionBrindada" value="No">
         <label class="form-check-label" for="noOtraInformacion">No</label>
       </div>
-      <input *ngIf="otraInformacionBrindada === 'Si'" type="text" class="form-control mt-2" name="informacionBrindada" placeholder="¿Qué información se le brindó?">
+      <input *ngIf="otraInformacionBrindada === 'Si'" type="text" class="form-control mt-2" name="informacionBrindada"
+        placeholder="¿Qué información se le brindó?">
     </div>
 
     <div class="form-group">
       <label>Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="siDestinoCompleto" [(ngModel)]="destinoCompleto" name="destinoCompleto" value="Si">
+        <input class="form-check-input" type="radio" id="siDestinoCompleto" [(ngModel)]="destinoCompleto"
+          name="destinoCompleto" value="Si">
         <label class="form-check-label" for="siDestinoCompleto">Si</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="noDestinoCompleto" [(ngModel)]="destinoCompleto" name="destinoCompleto" value="No">
+        <input class="form-check-input" type="radio" id="noDestinoCompleto" [(ngModel)]="destinoCompleto"
+          name="destinoCompleto" value="No">
         <label class="form-check-label" for="noDestinoCompleto">No</label>
       </div>
-      <input *ngIf="destinoCompleto === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoDestinoCompleto" name="razonNoDestinoCompleto" placeholder="¿Por qué?">
+      <input *ngIf="destinoCompleto === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoDestinoCompleto"
+        name="razonNoDestinoCompleto" placeholder="¿Por qué?">
     </div>
 
     <div class="form-group">
       <label>¿Recomendaría Mina Clavero como destino turístico?</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="siRecomendaria" [(ngModel)]="recomendaria" name="recomendaria" value="Si">
+        <input class="form-check-input" type="radio" id="siRecomendaria" [(ngModel)]="recomendaria" name="recomendaria"
+          value="Si">
         <label class="form-check-label" for="siRecomendaria">Si</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="noRecomendaria" [(ngModel)]="recomendaria" name="recomendaria" value="No">
+        <input class="form-check-input" type="radio" id="noRecomendaria" [(ngModel)]="recomendaria" name="recomendaria"
+          value="No">
         <label class="form-check-label" for="noRecomendaria">No</label>
       </div>
-      <input *ngIf="recomendaria === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoRecomendaria" name="razonNoRecomendaria" placeholder="¿Por qué?">
+      <input *ngIf="recomendaria === 'No'" type="text" class="form-control mt-2" [(ngModel)]="razonNoRecomendaria"
+        name="razonNoRecomendaria" placeholder="¿Por qué?">
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" [disabled]="!surveyForm.form.valid" class="btn btn-primary">Enviar</button>
   </form>
+  <div *ngIf="success" class="alert alert-success mt-3" role="alert">Encuesta cargada!</div>
+  <div *ngIf="!success && isSubmitted" class="alert alert-danger mt-3" role="alert">{{errorMsj}}</div>
 </div>

@@ -1,8 +1,8 @@
 const { Procedencia } = require('../models');
 
-const createAnswer = async (answer) => {
+const createAnswer = async (answer, t) => {
   try {
-    const newAnswer = await Procedencia.create(answer);
+    const newAnswer = await Procedencia.create(answer, { transaction: t });
     return newAnswer;
   } catch (error) {
     console.error('Error al crear la respuesta', error);
